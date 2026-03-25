@@ -1,0 +1,303 @@
+{% set body_class = 'static-page' %}
+{% extends 'base.html' %}
+
+{% block title %} AQI Standard{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/pages.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/aqi_standards.css') }}">
+{% endblock %}
+
+
+
+
+{% block content %}
+
+<div class="container2">
+     
+
+    
+    <div class="air-content">
+
+        <div class="aqi-standards">
+            <div class="air-header">
+                <h2>AQI Standards</h2>
+            </div>
+
+
+            <h4>Understanding Global Air Quality Guidelines</h4>
+            <p>
+                Air quality standards define how clean the air must be to 
+                protect human health. These standards are set by international 
+                and national agencies based on extensive scientific research 
+                linking air pollution exposure to serious health outcomes.
+            </p>
+            
+            <p>
+                While air pollution is a global problem, AQI standards differ 
+                across countries due to variations in policy priorities, 
+                economic conditions, population density, and monitoring 
+                capabilities. This page explains how WHO, India, and 
+                the United States define and regulate air quality—and what 
+                these differences mean for public health.
+            </p>
+            <br>
+            <h4>What Are AQI Standards?</h4>
+            <p>
+                AQI standards specify the maximum allowable 
+                concentration of major air pollutants, including:
+            </p>
+            <ul>
+                <li>PM2.5 (fine particulate matter)</li>
+                <li>PM10 (coarse particulate matter)</li>
+                <li>Nitrogen Dioxide (NO₂)</li>
+                <li>Ozone (O₃)</li>
+                <li>Sulfur Dioxide (SO₂)</li>
+                <li>Carbon Monoxide (CO)</li>
+            </ul>
+            <p>
+                The Air Quality Index (AQI) converts these pollutant 
+                concentrations into a simple scale that indicates how 
+                polluted the air is and how it may affect health.
+            </p>
+            <p>
+                Higher AQI values indicate worse air quality and greater health risks.
+            </p>
+            <br>
+            <h4>WHO Air Quality Guidelines</h4>
+            <p>
+                The World Health Organization (WHO) provides global 
+                air quality guidelines that are widely considered 
+                the health-based benchmark.
+            </p>
+            <h4>Key Highlights:</h4>
+            <ul>
+                <li>WHO guidelines are not legally binding</li>
+                <li>Designed to minimize health risks for all populations</li>
+                <li>Based on decades of global epidemiological studies</li>
+            </ul>
+            <p>
+                In 2021, WHO significantly tightened its guidelines, 
+                reflecting new evidence that air pollution causes harm even 
+                at very low levels.
+            </p>
+            <h4>WHO PM2.5 Guideline:</h4>
+            <ul>
+                <li>Annual average: 5 µg/m³</li>
+                <li>24-hour average: 15 µg/m³</li>
+            </ul>
+            <p>
+                WHO states that no level of air pollution is completely safe, 
+                and lower concentrations always lead to better health outcomes.
+            </p><br>
+            <h4>India’s AQI Standards (CPCB – NAAQS)</h4>
+            <p>
+                India follows the National Ambient Air Quality Standards (NAAQS), 
+                regulated by the Central Pollution Control Board (CPCB).
+            </p>
+            <h4>Key Highlights:</h4>
+            <ul>
+                <li>Legally enforceable</li>
+                <li>Designed for India’s environmental and socio-economic conditions</li>
+                <li>Uses a six-category AQI system</li>
+            </ul>
+            <h4>India PM2.5 Standard:</h4>
+             <ul>
+                <li>Annual average: 40 µg/m³</li>
+                <li>24-hour average: 60 µg/m³</li>
+            </ul>
+            <p>
+                India’s standards are less strict than WHO guidelines, 
+                meaning air classified as “acceptable” 
+                under Indian AQI may still pose long-term health risks.
+            </p><br>
+            <h4>United States AQI Standards (EPA – NAAQS)</h4>
+            <p>
+                The United States regulates air quality through the Environmental 
+                Protection Agency (EPA) under the Clean Air Act.
+            </p>
+            <h4>Key Highlights:</h4>
+            <ul>
+                <li>Strict enforcement and regular scientific review</li>
+                <li>Strong protection for sensitive groups</li>
+                <li>Widely adopted AQI communication system</li>
+            </ul>
+            <h4>US PM2.5 Standard:</h4>
+            <ul>
+                <li>Annual average: 9 µg/m³</li>
+                <li>24-hour average: 35 µg/m³</li>
+            </ul>
+            <p>
+                The US AQI scale (0–500) is used globally and serves as the 
+                foundation for many international AQI platforms.
+            </p>
+            <br>
+            <!-- TABLE ONE -->
+            <h4>AQI Standards Comparison</h4>
+            <h4>--PM2.5 (Most Harmful Pollutant)</h4>
+
+            <div class="table-wrapper">
+
+                <table class="aqi-table">
+                    <thead>
+                        <tr>
+                            <th>Authority</th>
+                            <th>Annual Limit(µg/m³)</th>
+                            <th>24-Hour Limit(µg/m³)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>WHO</td>
+                            <td>5</td>
+                            <td>15</td>
+                        </tr>
+                        <tr>
+                            <td>United States</td>
+                            <td>9</td>
+                            <td>35</td>
+                        </tr>
+                        <tr>
+                            <td>India</td>
+                            <td>40</td>
+                            <td>60</td>
+                        </tr>
+                    </tbody>
+    
+                </table>
+                <br>
+    
+                <!-- TABLE TWON -->
+                <h4>Lower limits = stronger health protection</h4>
+                <h4>PM10</h4>
+                 <table class="aqi-table">
+                    <thead>
+                        <tr>
+                            <th>Authority</th>
+                            <th>Annual Limit</th>
+                            <th>24-Hour</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>WHO</td>
+                            <td>15 µg/m³</td>
+                            <td>45 µg/m³</td>
+                        </tr>
+                        <tr>
+                            <td>India</td>
+                            <td>60 µg/m³</td>
+                            <td>100 µg/m³</td>
+                        </tr>
+                        <tr>
+                            <td>United States</td>
+                            <td>__</td>
+                            <td>150 µg/m³</td>
+                        </tr>
+                    </tbody>
+    
+                </table>
+                <br>
+    
+                <!-- TABLE THREE -->
+                <h4>Nitrogen Dioxide (NO₂ – Traffic Pollution)</h4>
+                 <table class="aqi-table">
+                    <thead>
+                        <tr>
+                            <th>Authority</th>
+                            <th>Annual Limit</th>
+                            
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>WHO</td>
+                            <td>10 µg/m³</td>
+                        </tr>
+                        <tr>
+                            <td>India</td>
+                            <td>40 µg/m³</td>
+                        </tr>
+                        <tr>
+                            <td>United States</td>
+                            <td>53 µg/m³</td>
+                        </tr>
+                    </tbody>
+    
+                </table>
+                <br><br>
+                
+            </div>
+
+
+            <h4>Why Do AQI Standards Differ?</h4>
+            <p>
+                Air quality standards are shaped by:
+            </p>
+            <ul>
+                <li>Scientific evidence available at the time of regulation</li>
+                <li>Monitoring and enforcement capacity</li>
+                <li>Economic and industrial considerations</li>
+                <li>Population exposure and vulnerability</li>
+            </ul>
+            <p>
+                WHO guidelines represent ideal health protection, while national 
+                standards often reflect practical implementation limits.
+            </p>
+            <br>
+            
+            <h4>What Do These Differences Mean for Health?</h4>
+            <p>
+                Research consistently shows that:
+            </p>
+            <ul>
+                <li>Long-term exposure to PM2.5 below national limits can still cause harm</li>
+                <li>Health risks increase with duration of exposure, not just peak levels</li>
+                <li>Children, elderly people, and those with heart or lung disease are most affected</li>
+            </ul>
+            <p>
+                Aligning national standards closer to WHO guidelines can significantly reduce:
+            </p>
+            <ul>
+                <li>Premature deaths</li>
+                <li>Cardiovascular disease</li>
+                <li>Respiratory illness</li>
+                <li>Economic healthcare burden</li>
+            </ul>
+            <br>
+
+            <h4>Data & Research Sources</h4>
+            <ul>
+                <li>
+                    World Health Organization
+                    <a href="https://www.who.int/">(WHO).</a>
+                </li>
+                <li>
+                    United States Environmental Protection Agency
+                    <a href="https://www.epa.gov/">(EPA).</a>
+                </li>
+                <li>
+                    Central Pollution Control Board
+                    <a href="https://cpcb.nic.in/">(INDIA).</a>
+                </li>
+                <li>
+                    Global Burden of Disease
+                    <a href="https://www.healthdata.org/research-analysis/gbd">(GBD).</a>
+                </li>
+                <li>
+                    <a href="https://theunion.org/our-work/journals/public-health-action?gad_source=1&gad_campaignid=23050926166&gbraid=0AAAAADcjmaOnvYdeakFLsxequitdt4BX_&gclid=Cj0KCQiAprLLBhCMARIsAEDhdPdW0_OIm_Lzk8jXn-pLbADDmGhVtrxaQ64JIZICS0ykMKb5udELZaoaAiZcEALw_wcB">
+                        Peer-reviewed public health studies.
+                    </a>
+                </li>
+            </ul>
+            
+        </div>
+    
+    </div>
+
+
+</div>
+
+
+
+{% endblock %}

@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}AQI Prediction{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/footer.css') }}">
+    <!-- Page-specific CSS -->
+    {% block extra_css %}
+    {% endblock %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/responsive.css') }}">
+    
+</head>
+
+<body class="{{ body_class | default('static-page') }}">
+    <!----------------------------------- HEADER ---------------------------------------->
+    <header class="header">
+        <h1>AQI Prediction</h1>
+    </header>
+    
+
+
+
+    <!----------------------------------- TOPBAR NAV------------------------------------------>
+
+    <div class="main-container">
+
+        <!-- BACKGROUND VIDEO -->
+        <!-- <div class="video-wrapper"> -->
+
+            <div class="navigation">
+
+                <div class="nav-container">
+
+ 
+                    <div class="hamburger" onclick="toggleMenu()">
+                        ☰
+                    </div>
+
+                    <!-- About, Home Account -->
+                    <nav id="mainNav">
+                        <a href="{{ url_for('dashboard.dashboard') }}">Home</a>
+        
+                        {% if session.get('role') == 'admin' %}
+                            <a href="{{ url_for('pages.admin_dashboard') }}">Admin</a>
+                        {% endif %}
+        
+                        {% if session.get('user_id') %}
+                            <div class="account-dropdown">
+                                <button type="button" class="account-btn" onclick="toggleAccountMenu()">
+                                    Account ▾
+                                </button>
+        
+                                <div class="account-menu" id="accountMenu">
+                                    <a href="{{ url_for('pages.profile') }}">Profile</a>
+                                    <a href="{{ url_for('auth.logout') }}">Logout</a>
+                                </div>
+                            </div>
+                       
+                        {% endif %}
+                        
+                    </nav>
+
+                </div>
+    
+    
+    
+            </div>
+           
+        
+            <!----------------------------------- MAIN ------------------------------------------>
+            <main>
+
+                <div class="video-wrapper">
+                    
+                    <video class="bg-video"></video>
+                    
+                    <div class="container">
+            
+                        
+        
+                         <!-- BACKGROUND VIDEO -->
+                        <video autoplay muted loop playsinline class="bg-video">
+                                <source src="{{ url_for('static', filename='animations/background/UI_bckimg.mp4') }}" type="video/mp4">
+                        </video>
+        
+                        {% with messages = get_flashed_messages(with_categories=True) %}
+                            {% if messages %}
+                                <div class="flash-container">
+                                    {% for category, message in messages %}
+                                    <!-- Pahle category msg show karenge -->
+                                        <!-- <div class="flash-message">{{ message }}</div> -->
+
+                                        <div class="flash flash-{{ category }}">
+                                            <span>{{ message }}</span>
+                                            <button onclick="this.parentElement.remove()">✕</button>
+                                        </div>
+
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+                        {% endwith %}
+            
+                        <!-- About, Home Account -->
+                        
+                        <!--For Child Pages Content-->
+                        {% block content %} 
+                                
+                        {% endblock %}
+            
+                    </div>
+
+                </div>
+
+
+
+            </main>
+
+
+        <!-- </div> -->
+
+
+    </div>
+    
+
+
+    <!------------------------------ For Rest Information in Bottom -->
+    <!-- <section>
+        <span>About</span>
+        <span>Contact</span>
+        <span>Links</span>
+    </section> -->
+
+
+
+    <!----------------------------------- FOOTER ---------------------------------------->
+    <footer id="global-footer">
+
+        <section class="wrapper">
+
+            <!-- FOOTER KE DO GRID BANENGE -->
+            
+            <!-- 1ST GRID AQI KA LOGA WALA -->
+            <div class="footer-grid">
+
+                <div class="footer-logo">
+                    <h2>AQI</h2>
+                    <img src="{{ url_for('static', filename='animations/lottie/aqi-logo.jpg') }}"> 
+                    <p>Real-time Air quality and weather data around the world</p>
+                </div>
+                
+               
+                
+                <!-- 2ND GRID FOOTER LINKS KA -->
+                <div class="footer-links">
+                    
+
+                    <!-- FOOTER LINKS KA GRID -->
+                    <div class="link-grid">
+                        
+                        <!-- ABOUT AQI -->
+                        <div class="about-content">
+                            <h4>About AQI</h4>
+                            <a href="{{ url_for('pages.about_us') }}">About Us</a><br>
+                            <a href="{{ url_for('pages.contact_us') }}">Contact Us</a><br>
+                            <a href="{{ url_for('pages.aqi_monitor') }}">AQI Monitor</a><br>
+                            <a href="{{ url_for('pages.climate_change') }}">Climate Change</a><br>
+                            <a href="{{ url_for('pages.world_air_quality_report') }}">World Air Quality Report</a><br>
+                        </div>
+                        <!-- AIR QUALITY -->
+                        <div class="air-content">
+                            <h4>Air Quality</h4>
+                            <a href="{{ url_for('pages.air_pollution') }}">Air Pollution</a><br>
+                            <a href="{{ url_for('pages.health_impacts') }}">Health Impacts</a><br>
+                            <a href="{{ url_for('pages.aqi_standards') }}">AQI Standards</a><br>
+                            <a href="{{ url_for('pages.pollution_sources') }}">Pollution Sources</a><br>
+                            <a href="{{ url_for('pages.aqi_apis') }}">AQI APIs</a><br>
+                            <a href="{{ url_for('pages.find_aqi_by_city') }}">Find AQI by City</a><br>
+                            <a href="{{ url_for('pages.find_aqi_by_country') }}">Find AQI by Country</a><br>
+                            <a href="{{ url_for('pages.global_aqi_map') }}">Global AQI Map</a><br>
+                        </div>
+                        <!-- RANKING -->
+                        <div class="ranking-content">
+                            <h4>Rankings</h4>
+                            <a href="{{ url_for('pages.city_rankings') }}">City Rankings</a><br>
+                            <a href="{{ url_for('pages.country_rankings') }}">Country Rankings</a><br>
+                            <a href="{{ url_for('pages.most_polluted_cities') }}">Most Polluted Cities</a><br>
+                            <a href="{{ url_for('pages.cleanest_cities') }}">Cleanest Cities</a><br>
+                            <a href="{{ url_for('pages.historical_data') }}">Historical Data</a><br>
+                            <a href="{{ url_for('pages.weather_impact') }}">Weather Ranking</a><br>
+                        </div>
+                        <!-- LOCATION -->
+                        <div class="location-content">
+                            <h3>Location</h4>
+                            <div class="location">
+                                    <h4 class="lebel">Address</h4>
+                                    <a href="https://www.google.com/maps/place/26%C2%B054'46.6%22N+80%C2%B056'39.0%22E/@26.9129317,80.9415853,17z/data=!3m1!4b1!4m4!3m3!8m2!3d26.9129317!4d80.9441602?hl=en&entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoKLDEwMDc5MjA2N0gBUAM%3D">
+                                        Lucknow, 226021, U.P, India</a>
+                                    <!-- <p>Lucknow, 226021, U.P, India</p> -->
+                            <!-- </div> -->
+                            <div class="email">
+                                <h4 class="lebel">Email</h4>
+                                <!-- email ko ancher tag me likhenge
+                                taki responsive ho -->
+                                <a href="mailto:adityachauhanietlko22@gmail.com" class="value">adityachauhanietlko22@gmail.com</a>
+                            </div>
+                            <div class="phone">
+                                <h4 class="lebel">Phone</h4>
+                                <a href="tel:8934973431" class="value">8934973431</a>
+                            </div>
+                            
+                            <div class="social-media">
+                                <h4 class="lebel">Social Media</h4>
+                                <a href="https://www.linkedin.com/in/aditya-chauhan-ab04a5329/">Linkedin</a>
+                                <br>
+                                <a href="https://github.com/adityachauhaniet">Github</a>
+                                <br>
+                                <a href="https://x.com/ADITYACHAU99232">Twitter</a>
+                            </div>
+            
+                        </div>
+
+                    </div>
+                    
+                </div>
+            </div>
+            
+            
+            
+        </section>
+        
+        <div class="footer-bottom">
+            <!-- FOOTER COMMENT -->
+            <p>&copy; {{2025}} My AQI Prediction App</p>
+            <h3>Developed By Aditya Chauhan</h3>
+
+        </div>
+
+    </footer>
+
+    <!-- Ye flash messges kfo 3 sec me dissapper kr dega -->
+    <script>
+        setTimeout(function(){
+            const flashes = document.querySelectorAll('.flash');
+            flashes.forEach(flash => {
+                flash.style.transition = 'opacity 0.3s ease-out';
+                flash.style.opacity = "0"; // Fade out
+
+                //DOM se remove kr dena
+                setTimeout(() => flash.remove(), 300);
+            });
+        }, 3000); //3000ms = 3 seconds
+    </script>
+
+
+
+<!---------------- JavaSript code for Account(Profile,Logout Button)---------------------- -->
+<script>
+function toggleAccountMenu() {
+    const menu = document.getElementById("accountMenu");
+    menu.classList.toggle("show");
+}
+
+/* Close dropdown when clicking outside */
+document.addEventListener("click", function (event) {
+    const dropdown = document.querySelector(".account-dropdown");
+    if (dropdown && !dropdown.contains(event.target)) {
+        document.getElementById("accountMenu").classList.remove("show");
+    }
+});
+
+
+function toggleMenu() {
+    const nav = document.getElementById("mainNav");
+    nav.classList.toggle("show");
+}
+
+
+</script>
+
+
+</body>
+</html>

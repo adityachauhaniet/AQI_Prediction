@@ -1,0 +1,150 @@
+{% set body_class = 'static-page' %}
+{% extends 'base.html' %}
+
+{% block title %} World Air Quality {% endblock %}
+
+
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/pages.css') }}">
+{% endblock %}
+
+
+{% block content %}
+
+<div class="container2">
+
+    
+    
+
+
+    <!-- WORLD AIR QUALITY BCK IMAGE -->
+  
+    
+    <div class="about-content">
+        <div class="world-air-quality-report">
+            
+            <div class="about-header">
+                <h2>World Air Quality Report</h2>
+            </div>
+
+  
+          
+            <div class="air_quality_report">
+   
+            
+                <div class="report_results">
+
+                    <div id="report_data">
+  
+                        <h2>World Wide Air Quality Report 2024</h2>
+                        <p>
+                            The World Air Quality Report 2024 by AQI aims to highlight the global air quality trends in 2024 to support the 
+                            progress on environmental actions globally. Thus, the report focuses on the PM2.5 concentrations and 
+                            AQI (Air Quality Index) across countries and cities. To offer a comprehensive air pollution view, 
+                            both real-time and historical data from AQI.in have been collected and utilized.
+                        </p>
+                        <p>
+                            The report analyzes the AQI and PM2.5 levels in the air across 5,750 cities in 140 countries and regions. 
+                            The data for this report was collected from more than 15,432 air quality monitoring stations operated by governmental bodies, 
+                            research institutions, universities, and other organizations.
+                        </p>
+            
+                        <h4>Data Methodology</h4>
+                        <p>
+                            The data used in the following report was sourced from AQI.in, 
+                            which monitors and collects real-time air quality. This report categorizes the data by countries, 
+                            regions and cities and also includes city-wise and country-wise rankings. The Asia region has 
+                            more extensive data coverage because of a higher number of air quality monitoring stations in the area.
+                        </p>
+            
+                        <h4>Data Matrix</h4>
+                        <p>
+                            The report utilizes AQI and PM2.5 metrics to understand the air pollution risk globally.
+                            <ul>
+                                <li> AQI: Calculated based on the U.S. standardized measurement system.</li>
+                                <li> PM2.5 Data: Reported in µg/m³ (micrograms per cubic meter), adhering to the latest World Health Organization (WHO) guidelines for PM2.5 levels.</li>
+                                <li> Cigarette data is based on PM2.5 levels using Berkeley’s rule: 1 cigarette = 22 µg/m³ PM2.5.</li>
+                            </ul>
+                            
+                        </p>
+            
+                        <br>
+            
+                        <h3>Summary</h3>
+                        <p>
+                            The World Air Quality Report 2024 by AQI.IN offers a detailed analysis of global air quality 
+                            trends. The ranking in this report is derived from AQI (US standard) and PM2.5 levels. 
+                            It represents the air quality trends for the year 2024 with countries’ 
+                            values calculated based on the data collected from cities and locations within each country.
+                        </p>
+                        <p>
+                            This report analyzes AQI and PM2.5 levels across 5,750 cities in 140 countries with data 
+                            from over 15,432 air quality monitoring stations operated by governmental agencies, 
+                            research institutions, and other organizations. The rankings highlight the countries and 
+                            cities exceeding the safe limit of AQI levels. As per the report, Bangladesh, Pakistan, and 
+                            India emerged as the top three nations with the highest air quality levels in 2024. 
+                            Here is the summary of the key findings of the report:
+                        </p>
+            
+                        <h3>Key Findings</h3>
+                        <h4>Continental Overview</h4>
+                        <p>
+                            Asia recorded the highest AQI levels in the world, 
+                            with 68% of cities recording AQI levels above the 'Good' category in 2024. 
+                            Out of 39 top countries, 31 countries recorded high AQI levels. 
+                            South and Central Asian countries recorded high air quality levels in the world. 
+                            Oceania ranked as the least polluted continent globally 
+                            with a total of 156 cities means 100% recorded 'Good' AQI levels.
+                        </p>
+            
+                        <h4>Countries with the highest AQI levels:</h4>
+                        <p>
+                            Bangladesh, Pakistan and India rank among the countries with the highest AQI levels globally. 
+                            Bangladesh recorded no good month for air quality throughout the year. Similarly, 
+                            Pakistan also recorded no good month of air quality in 2024 and 
+                            the annual average remained in the 'Poor' category. 
+                            Only 10 cities in India achieved the ‘Good’ AQI annual average.
+                        </p>
+            
+                        <h4>Cities with the highest AQI levels:</h4>
+                        <p>
+                            The top 10 cities in the world with the highest AQI levels are all in India. 
+                            New Delhi secured the top rank. Then, Dhaka of Bangladesh and 
+                            Peshawar of Pakistan ranked simultaneously after the other Indian cities. 
+                            Out of the top 100 cities with the highest AQI levels in the World, 92 are in India. 
+                            Highlighting the air pollution conditions in the country. 
+                            China ranks the second Country in the number of cities with high AQI levels.
+                        </p>
+            
+                        <h4>WHO Compliance:</h4>
+                        <p>
+                            Only 11.7% of cities around the world met the WHO annual guidelines for PM2.5. 
+                            The lowest 0% and 2.3% Cities in Africa and Asia respectively met the WHO annual guidelines for PM2.5. 
+                            Asia leads in air pollution in 2024, with 97.7% (2250 out of 2,309) 
+                            of its cities exceeding the WHO guideline for PM2.5 (5µg/m³). Only 2.3% 
+                            in Asia met the WHO annual guideline for PM2.5. Oceania recorded the cleanest air among other 
+                            continents as 54.5% of cities met the WHO annual guidelines of PM2.5
+                        </p>
+
+                        <!-- 👉 Call To Action -->
+                        <div style="margin-top: 30px; text-align: center;">
+                            <a href="{{ url_for('pages.reports_list') }}" class="btn">
+                                View All Reports
+                            </a>
+                        </div>
+
+                </div>
+            </div>
+            
+        </div>
+
+    
+    </div>
+
+</div>
+
+
+
+
+{% endblock %}

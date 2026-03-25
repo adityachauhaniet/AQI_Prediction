@@ -1,0 +1,127 @@
+.table-container {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+}
+
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.admin-table th {
+    background: #1e293b;
+    color: white;
+    padding: 12px;
+    text-align: center;
+}
+
+.admin-table td {
+    padding: 12px;
+    border-bottom: 1px solid #eee;
+    text-align: center;
+}
+
+.admin-table tr:hover {
+    background: #f8fafc;
+}
+
+/* AQI Badge */
+.aqi-badge {
+    padding: 5px 10px;
+    border-radius: 20px;
+    background: #e0f2fe;
+    color: #0369a1;
+    font-weight: 600;
+}
+
+/* Delete button */
+.btn-delete {
+    background: #ef4444;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.btn-delete:hover {
+    background: #dc2626;
+}
+
+/* --------------------- DARK MODE ----------------- */
+.admin-body.dark-mode .table-container {
+    background: #1e293b;
+}
+
+.admin-body.dark-mode .admin-table th {
+    background: #0f172a;
+    /* color: #cbd5e1; */
+}
+
+.admin-body.dark-mode .admin-table td {
+    border-bottom: 1px solid #334155;
+}
+
+
+.admin-body.dark-mode .admin-table tr:hover {
+    background: #334155f6;
+}
+
+.admin-body.dark-mode .aqi-badge {
+    background: #0f172a;
+    color: #cbd5e1;
+}
+
+.admin-body.dark-mode .btn-delete {
+    background: #dc2626;
+}
+
+.admin-body.dark-mode .btn-delete:hover {
+    background: #b91c1c;
+}
+
+/* ------------------------------------------------ RESPONSIVE----------------------- */
+
+/* ---------------MOBILE----------------- */
+@media(max-width: 768px) {
+
+    .admin-table thead {
+        display: none;
+    }
+
+    .admin-table, .admin-table tbody, .admin-table tr, .admin-table td {
+        display: block;
+        width: 100%;
+    }
+
+    .admin-table tr {
+        margin-bottom: 15px;
+        padding: 15px;
+        background: #f8fafc3c;
+        border-radius: 10px;
+    }
+
+    .admin-table td {
+        text-align: left; /* better for mobile */
+        position: relative;
+        padding: 8px 0;
+    }
+
+
+    .admin-table td::before {
+        font-weight: bold;
+        display: block;
+        margin-bottom: 5px;
+        color: #94a3b8;
+    }
+
+    .admin-table td:nth-child(1)::before{ content: "ID"; }
+    .admin-table td:nth-child(2)::before{ content: "CO"; }
+    .admin-table td:nth-child(3)::before{ content: "Ozone"; }
+    .admin-table td:nth-child(4)::before{ content: "NO2"; }
+    .admin-table td:nth-child(5)::before{ content: "PM2.5"; }
+    .admin-table td:nth-child(6)::before{ content: "AQI"; }
+    .admin-table td:nth-child(7)::before{ content: "User"; }
+    .admin-table td:nth-child(8)::before{ content: "Date"; }
+
+}

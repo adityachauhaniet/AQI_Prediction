@@ -1,0 +1,416 @@
+/* global layout(body, fonts, nav,header, footer position */
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    min-height: 100vh;
+    display: flex; /* */
+    flex-direction: column; /*body → footer hamesha bottom */
+    /* line-height: 1.6; */
+}
+
+/* -------------------HEADER -----------------------*/
+.header{
+    width: 100%;
+    height: 60px;
+    border-bottom: 1px solid #000; /* Ye bus header ka bottom ka border bnayega */
+    text-align: center;
+    padding: 10px 15px; /* thoda center me adjust ho jayega */
+    /* background: rgba(94, 86, 216, 0.8); thoda transparent hoga */
+    background: linear-gradient(
+    90deg,
+    rgba(40, 35, 140, 0.95) 0%,
+    rgba(70, 65, 190, 0.85) 50%,
+    rgba(120, 115, 240, 0.70) 100%
+    );
+
+    z-index: 10; /* */
+  
+}
+
+
+/* -----------------NAVIGATION ----------------*/
+.navigation nav{
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    justify-content: flex-end; /* Thoda left side shift ho jayega Home, Account*/
+    padding: 10px 20px;
+    flex-wrap: wrap; /* navigation wrap on small screens */
+    overflow: hidden; /* Extra nav items scrollable on small screens */
+}
+.navigation a{
+    text-decoration: none;
+}
+.navigation nav a, .account-btn {
+    font-size: 16px;
+}
+
+/*Login ke baad single line */
+.account-dropdown{
+    display: inline-block;
+}
+
+/* -------------------NAV CONTAINER------------------ */
+
+.nav-container{
+    display: flex;
+    justify-content: space-between; /* Home, Account dono side pe shift ho jayenge */
+    align-items: center;
+}
+
+/* Hide hamburger on desktop */
+.hamburger {
+    display: none;
+    font-size: 26px;
+    cursor: pointer;
+    color: white;
+}
+
+/* -----------------Mobile NAV---------------- */
+
+@media (max-width: 768px) {
+   
+    .hamburger {
+        display: block; /* Show hamburger on mobile */
+    }
+
+    .navigation nav {
+        display: none; /* Hide desktop nav */
+        flex-direction: column;
+        width: 100%;
+        background: rgba(0,0,0,0.85);
+        padding: 15px 0; /* Thoda padding dekar touch friendly banayenge */
+        border-radius: 8px;
+        margin-top: 10px; /* Hamburger se thoda gap dekar */
+    }
+
+    .navigation nav a, .account-btn {
+        padding: 10px 0; /* Touch friendly padding */
+        /* width: 100%; Full width for easier tapping */
+        text-align: center; /* Center align text on mobile */
+        color: white; /* White text for better contrast on dark background */
+    }
+
+     /* Show nav when active */
+     .navigation nav.active {
+        display: flex;
+    }
+
+     .navigation nav.show {
+        display: flex;
+    }
+    
+}
+
+
+
+
+/*------------------------------MAIN WRAPPER -------------------*/
+.main-container{
+    position: relative;
+    width: 100%;
+    flex: 1;
+    padding: 15px;
+    min-height: 95vh;
+    /* overflow: hidden; */
+
+}
+
+
+/*---------------------BACKGROUND VIDEO(COMMON) ----------------------*/
+.video-wrapper{
+    position: relative;
+    width: 100%;
+    /* min-height: 100vh;
+    overflow: hidden; */
+}
+
+.bg-video{
+    position: fixed; /*video background har page me stable*/
+    inset: 0; /*pura container me fit aa jayega */
+    width: 100%; /*Abhi aqi wala bck video dikhega*/
+    height: 100%;
+    object-fit: cover;
+    z-index: -1; /*video pichhe chala jayega*/
+    filter: brightness(0.6); /*low ho jayegi*/
+}
+
+
+/*---------------------------CONTENT ABOVE VIDEO ------------*/
+.container{
+    /* To make container responsive */
+    width: 90%;
+    max-width: 1100px;
+    margin: auto;
+    padding: 15px;
+
+    /* position: relative;
+    z-index: 2;
+    padding: 40px; */
+}
+
+
+
+
+/*------------------------------FOOTER STICKY BOTTOM----------------------*/
+#global-footer{
+    margin-top: auto;
+    width: 100%;
+    /* text-align: center; */
+    padding: 10px;
+}
+
+
+
+/* -------------------For Account(Profile, Logout) Button -------------------*/
+.account-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Account button */
+.account-btn {
+    background: none;
+    border: 1px solid #333;
+    padding: 6px 12px;
+    cursor: pointer;
+}
+
+/* Dropdown menu (HIDDEN by default) */
+.account-menu {
+    display: none;              
+    /* position: absolute; */
+    top: 100%;
+    /* right: 0; */
+    background-color: #fff;
+    min-width: 140px;
+    border: 1px solid #ccc;
+    z-index: 9999;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+/* Links inside dropdown */
+.account-menu a {
+    display: block;
+    padding: 8px 12px;
+    text-decoration: none;
+    color: #000;
+}
+
+.account-menu a:hover {
+    background-color: #f2f2f2;
+}
+
+/* When active */
+/* Ab Logout aur Profile ek hi block me show honge */
+.account-menu.show {
+    display: block;
+}
+
+
+/* ----------------------------------------FLASH MESSAGE------------------------------ */
+
+/* Flash Container */
+.flash-container {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9999;
+    width: auto;
+}
+
+/* Base Flash */
+.flash {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-width: 300px;
+    max-width: 500px;
+    padding: 14px 20px;
+    margin-bottom: 15px;
+    border-radius: 14px;
+    font-weight: 500;
+    backdrop-filter: blur(10px);
+    background: rgba(255,255,255,0.15);
+    color: white;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+    animation: slideDown 0.4s ease;
+}
+
+/* Success Style */
+.flash-success {
+    background: linear-gradient(135deg, #00c853, #43a047);
+}
+
+/* Warning Style */
+.flash-warning {
+    background: linear-gradient(135deg, #ff9800, #f57c00);
+}
+
+/* Error Style */
+.flash-danger {
+    background: linear-gradient(135deg, #ff4d4d, #c62828);
+}
+
+/* Close Button */
+.flash button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* Animation */
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -20px);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, 0);
+    }
+}
+
+
+
+
+
+/* ================= GLOBAL RESPONSIVE ================= */
+
+/* Add global responsive rules */
+/* Tablet */
+@media(max-width: 768px){
+    body {
+        font-size: 15px;
+    }
+
+    .header {
+        height: auto;
+        padding: 12px;
+    }
+
+    .navigation nav {
+        justify-content: center;
+        gap: 8px;
+    }
+
+    .container {
+        width: 95%;
+    }
+
+
+    .account-dropdown {
+        width: 100%;
+        text-align: center;
+    }
+
+    .account-menu {
+        position: static;   /* ❗ MOST IMPORTANT FIX */
+        width: 100%;
+        border: none;
+        background: rgba(255,255,255,0.1);
+        backdrop-filter: blur(10px);
+    }
+
+    .account-menu a {
+        color: white;
+        padding: 10px;
+        border-top: 1px solid rgba(255,255,255,0.1);
+    }
+
+     .account-btn {
+        width: 100%;
+        text-align: center;
+        color: white;
+        border: none;
+    }
+
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+
+    body {
+        font-size: 14px;
+    }
+
+    .header {
+        padding: 10px;
+    }
+
+    .container {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .navigation nav {
+        flex-direction: column;
+        align-items: center;
+        gap: 6px;
+    }
+
+}
+
+/* -------------------universal responsive elements------------------ */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+video {
+    max-width: 100%;
+    height: auto;
+}
+
+input, button {
+    max-width: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

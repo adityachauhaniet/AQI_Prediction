@@ -1,0 +1,193 @@
+/* AQI prediction form + result UI */
+
+
+
+/* ---------------------AQI CATEGORY COLORS------------------ */
+.good { color: #2ecc71; font-weight: 600;}
+.moderate { color: #f1c40f; font-weight: 600;}
+.unhealthy_for_sensitive_groups { color: #e67e22; font-weight: 600;}
+.unhealthy { color: #e74c3c; font-weight: 600;}
+.very_unhealthy { color: #8e44ad; font-weight: 600;}    
+.hazardous { color: #7f0000; font-weight: 600;}
+
+
+
+
+
+
+.prediction-page .prediction-box {
+    max-width: 900px;
+    margin: 60px auto;
+    /* background: rgba(0,0,0,0.6); */
+
+    background: rgba(255,255,255,0.12);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,0.25);
+
+
+    padding: 40px;
+    border-radius: 16px;
+    color: white;
+    text-align: center;
+    /* position: relative; */
+}
+
+.prediction-box h2{
+    margin-bottom: 20px;
+
+    color: #ffffff;
+    font-weight: 600;
+}
+
+/* Inner white container */
+.prediction-body {
+    border-radius: 10px;
+    width: 100%;
+    max-width: 500px;
+    background: rgba(255,255,255,0.95);
+    color: black;
+    margin: 0 auto; /*center horizontally*/
+    padding: 25px;
+    box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.3);
+
+    /* align-items: center; */
+    /* background: rgba(255,255,255,0.9);
+    color: black;
+    margin-left: 150px;
+    padding: 20px; */
+}
+
+
+/* form layout */
+
+form .form-group {
+    margin-bottom: 15px;
+    text-align: left;
+    /* display: flex;
+    flex-direction: column;
+    align-items: left;
+    display: block; */
+}
+
+/* Label */
+form .form-group label {
+    display: inline-block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    font-size: 16px;
+    /* text-align: left; */
+}
+
+/* Input box */
+form .form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 15px;
+    transition: border 0.3s, box-shadow 0.3s;
+
+    /* max-width: 300px;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px; */
+}
+
+/* Input focus effect */
+.prediction-form input:focus {
+    border-color: #0d47a1;
+    outline: none;
+    box-shadow: 0px 0px 6px rgba(13, 71, 161, 0.4);
+}
+
+/* Submit button */
+/* form .btn-submit{
+    background: #0d47a1;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: all 0.3s ease;
+} */
+
+.btn-submit {
+    width: 100%;
+    background: linear-gradient(135deg, #0d47a1, #1565c0);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+form .btn-submit:hover {
+
+    transform: translateY(-3px);
+    box-shadow: 0 8px 18px rgba(0,0,0,0.3);
+
+    /* background: #0b3d91;
+    transform: scale(1.05);
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.3); */
+}
+
+
+.prediction-body {
+    margin-top: 25px;
+    /* padding-top: 15px;
+    border-top: 2px solid #ddd; */
+}
+
+.aqi_result {
+    margin-top: 35px;
+    padding: 30px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, #f5f7fa, #e4e7f1);
+    /* background: #ffffff; */
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.18);
+    /* text-align: center; */
+}
+
+.aqi_result h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.aqi_result h1{
+    font-size: 60px;
+    /* margin: 15px 0; */
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+
+/* AQI text */
+
+.aqi_result p{
+    font-size: 16px;
+    color: #444;
+
+    /* margin-top: 10px; 
+    line-height: 1.5; */
+
+}
+
+.input-box::placeholder {
+    color: #444444;   /* dark gray */
+    opacity: 1;       /* ensures full visibility */
+}
+
+
+
+
+
+
+
+
+

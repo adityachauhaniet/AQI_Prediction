@@ -1,0 +1,80 @@
+{% set body_class = 'static-page' %}
+{% extends 'base.html' %}
+
+{% block title %} About Us{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/pages.css') }}">
+{% endblock %}
+
+
+{% block content %}
+
+<div class="container2">
+    
+
+    <div class="about-content">
+
+        <div class="about-us">
+
+            <div class="about-header">
+                <h2>About Us</h2>
+
+                <!-- <div class="about-image">
+                    <img src="{{ url_for('static', filename='images/about_us.jpg') }}" alt="About Us Image">
+                </div> -->
+            </div>
+            <h3>What is AQI?</h3>
+            <p>Air Quality Index (AQI) is a measurement system used to communicate how polluted the air currently is or 
+                how polluted it is forecast to become. 
+                It focuses on health effects 
+                people may experience within a few hours or days after breathing polluted air.
+            </p>
+           
+            <h3>Why Air Quality Matters</h3>
+            <p>
+               Poor air quality can affect everyone — children, elderly people, 
+               and those with respiratory or heart conditions are especially vulnerable. 
+               Long-term exposure to polluted air increases the risk of serious health issues. 
+            </p>
+
+            <h3>Who We are?</h3>
+            <p>We are a dedicated team of environmental 
+                enthusiasts committed to providing accurate and real-time air quality data to the public.
+            </p>
+            <p>
+                AQI is created with a simple but powerful idea – to let everyone see what they are breathing. 
+                Knowing what's in the air is the first step towards enjoying clear air and a healthier life.
+            </p>
+            <p>
+                We are an open-source air quality monitoring platform that shows real-time air quality data of your location. 
+                We just not only provide numbers to check, but we also provide plans to save yourself from air pollution.
+            </p>
+            <p>
+                AQI is a platform that helps you stay informed by keeping an eye on air pollution levels in your city or 
+                monitoring the air in your home or workplace. Thus, we also offer a dashboard for users of Prana Air monitors. 
+                It allows them to easily track and analyze air quality data of their monitors.
+            </p>
+            <h3>What This Platform Does</h3>
+            <p>
+                <div>
+                    <ul>
+                        <li>Provides air quality awareness</li>
+                        <li>Helps users understand pollution sources</li>
+                        <li>Predicts AQI using machine learning</li>
+                        <li>Shares global air quality reports</li>
+                    </ul>
+                </div>
+            </p>
+            <h3>Our Mission</h3>
+            <p>To provide accurate and real-time air quality data to help 
+                individuals make informed decisions about their health and environment.
+            </p>
+
+        </div>
+    </div>
+
+</div>
+
+
+{% endblock %}

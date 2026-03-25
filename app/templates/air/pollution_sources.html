@@ -1,0 +1,452 @@
+{% set body_class = 'static-page' %}
+{% extends 'base.html' %}
+
+{% block title %} Pollution sources{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/pages.css') }}">
+{% endblock %}
+
+
+{% block content %}
+
+<div class="container2">
+
+  
+    <div class="air-content">
+
+        <div class="pollution-sources">
+            
+            <div class="air-header">
+                <h2>Pollution Sources</h2>
+            </div>
+
+            
+    
+            <h3>Pollution Sources</h3>
+            <h4>Understanding the Major Contributors to Air Pollution</h4>
+            <p>
+                Air pollution is the result of a complex interaction 
+                between natural processes and human activities. 
+                These pollution sources release harmful gases and 
+                particulate matter into the atmosphere, significantly 
+                degrading air quality and increasing health and environmental 
+                risks. Understanding pollution sources is essential for 
+                effective mitigation, regulation, and long-term air quality management.
+            </p>
+            <br>
+            <h4>Classification of Pollution Sources</h4>
+            <p>
+                Air pollution sources are broadly classified into anthropogenic 
+                (human-made) and natural sources. While natural sources 
+                contribute episodically, human activities account for the 
+                majority of persistent air pollution globally.
+            </p>
+            <br>
+            <h4>1. Vehicular Emissions (Transportation Sector)
+                <a href="https://www.unepfi.org/wordpress/wp-content/uploads/2024/05/Climate-Risks-in-the-Transportation-Sector-1.pdf">
+                    [Show]
+                </a>
+            </h4>
+            <p>
+                Transportation is one of the largest contributors to urban air pollution, 
+                especially in densely populated cities.
+            </p>
+            <h4>Key Pollutants Emitted</h4>
+            <ul>
+                <li>  Nitrogen Dioxide (NO₂)
+                    <a href="https://www.greenpeace.to/greenpeace/wp-content/uploads/FinalReport.pdf" class="external-link"
+                        target="_blank">
+                    </a>
+                </li>
+                <li>
+                    Carbon Monoxide (CO)
+                    <a href="https://www.epa.gov/transportation-air-pollution-and-climate-change/carbon-pollution-transportation" class="external-link"
+                        target="_blank">
+                    </a>
+                </li>
+                <li>
+                    Particulate Matter (PM₂.₅ and PM₁₀)
+                    <a href="https://prana.cpcb.gov.in/ncapDashboard/downloadEmissionFiles/Agra.pdf" class="external-link"
+                        target="_blank">
+                    </a>
+                </li>
+                <li>
+                    Volatile Organic Compounds (VOCs)
+                    <a href="https://www.sciencedirect.com/science/article/pii/S2949839224000956" class="external-link"
+                        target="_blank">
+                    </a>
+                </li>
+                <li>
+                    Ozone (secondary pollutant)
+                    <a href="https://www.epa.gov/ground-level-ozone-pollution/ground-level-ozone-basics" class="external-link"
+                        target="_blank">
+                    </a>
+                </li>
+            </ul>
+            <h4>Major Contributors</h4>
+            <ul>
+                <li>
+                    Petrol and diesel vehicles
+                    <a href="https://www.researchgate.net/publication/256503115_On_vehicular_emissions_of_petrol_and_diesel_engines" class="external-link"
+                        target="_blank">
+                    </a>
+                </li>
+                <li>
+                    Two-wheelers and auto-rickshaws
+                    <a href="https://transport-links.com/wp-content/uploads/2025/01/HVT059_Final-Report_.pdf" class="external-link"
+                        target="_blank">
+                    </a>
+                </li>
+                <li>
+                    Heavy-duty trucks and buses
+                    <a href="https://energyandcleanair.org/wp/wp-content/uploads/2025/03/CREA_HIA_Trucks.pdf" class="external-link"
+                        target="_blank">
+                    </a>
+                </li>
+                <li>
+                    Traffic congestion and idling engines
+                    <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4243514/" class="external-link"
+                        target="_blank">
+                    </a>
+                </li>
+            </ul>
+            <h4>Evidence & Data</h4>
+            <ul>
+                <li>
+                    According to the World Health Organization (WHO), transport-related emissions 
+                    contribute up to 25–30% of PM₂.₅ levels in major cities.
+                </li>
+                <li>
+                    In India, studies by CPCB indicate that road transport contributes 
+                    30–40% of NO₂ concentrations in metropolitan areas.
+                </li>
+            </ul>
+            <br>
+
+            <h4>2. Industrial Emissions
+                <a href="https://environment.delhi.gov.in/sites/default/files/inline-files/dpcc_industrial_air_pollution_control.pdf">
+                    [Show]
+                </a>
+            </h4>
+            <p>
+                Industrial activities release large volumes of toxic pollutants, 
+                especially in industrial clusters and economic zones.
+            </p>
+            <h4>Key Pollutants</h4>
+            <ul>
+                <li>
+                    Sulfur Dioxide (SO₂)
+                    <a href="https://visualizingenergy.org/global-anthropogenic-sulfur-dioxide-emissions-1750-2022/" class="external-link"
+                        target="_blank">
+                    </a>
+                </li>
+                <li>
+                     Nitrogen Oxides (NOₓ)
+                    <a href="https://www.epa.gov/Cross-State-Air-Pollution/summary-proposed-no-emission-limits-industrial-sources" class="external-link"
+                        target="_blank">
+                    </a>
+                </li>
+                <li>
+                     PM₂.₅ and PM₁₀
+                    <a href="https://airly.org/en/what-is-pm10-and-what-is-pm2-5/" class="external-link"
+                        target="_blank">
+                    </a>
+                </li>
+                <li>
+                    Heavy metals (Lead
+                    <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4144270/#S14" class="external-link"
+                        target="_blank">
+                    </a>
+                     Mercury
+                    <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4144270/#S18" class="external-link"
+                        target="_blank">
+                    </a>
+                     Arsenic
+                    <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4144270/#S2" class="external-link"
+                        target="_blank">
+                    </a>
+                    )
+                </li>
+                <li>
+                    <a href="https://www.sciencedirect.com/science/article/pii/S0160412025004246" class="external-link"
+                        target="_blank">
+                        VOCs
+                    </a>
+                </li>
+            </ul>
+
+            <h4>Major Industries Involved</h4>
+            <ul>
+                <li> Power plants (coal-based)
+                    <a href="https://www.pib.gov.in/PressReleasePage.aspx?PRID=2036984&reg=3&lang=2" class="external-link"
+                        target="_blank">
+                    </a>
+                </li>
+                <li>
+                    Steel and metal processing (
+                    <a href="https://iea.blob.core.windows.net/assets/eb0c8ec1-3665-4959-97d0-187ceca189a8/Iron_and_Steel_Technology_Roadmap.pdf">
+                        Report
+                    </a>
+                    )
+                </li>
+                <li>
+                    Oil refineries and chemical plants (
+                    <a href="https://www.eea.europa.eu/en/analysis/publications/emepcorinair/group04.pdf/@@download/file">
+                        Report
+                    </a>
+                    )
+                </li>
+            </ul>
+
+            <h4>Research Insight</h4>
+            <ul>
+                <li>
+                    The International Energy Agency (IEA) reports that coal-fired power plants 
+                    are among the largest single sources of SO₂ emissions globally.
+                </li>
+                <li>
+                    Industrial emissions are a major driver of acid rain and secondary particulate formation.
+                </li>
+
+            </ul>
+            <br>
+
+            <h4>3. Biomass Burning and Household Pollution
+                <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC6360106/pdf/nihms-1516768.pdf">
+                    [Show]
+                </a>
+            </h4>
+            <p>
+                Indoor and outdoor biomass burning remains a critical pollution source in developing regions.
+            </p>
+            <h4>--Common Sources</h4>
+            <ul>
+                <li>
+                    <a>
+                        Burning of firewood, coal, dung cakes
+                    </a>
+                </li>
+                <li>
+                    <a>
+                        Agricultural residue burning (stubble burning)
+                    </a>
+                </li>
+                <li>
+                    <a>
+                        Open waste burning
+                    </a>
+                </li>
+            </ul>
+            <h4>Pollutants Released</h4>
+            <ul>
+                <li>PM₂.₅</li>
+                <li>Carbon Monoxide (CO)</li>
+                <li>Black Carbon</li>
+                <li>Polycyclic Aromatic Hydrocarbons (PAHs)</li>
+            </ul>
+            <h4>Global Impact</h4>
+            <ul>
+                <li>WHO estimates that over 3 billion people are exposed to household air pollution from solid fuel use.</li>
+                <li>Crop residue burning significantly worsens seasonal air quality in South Asia.</li>
+            </ul>
+            <br>
+
+            <h4>4. Construction and Road Dust
+                <a href="https://www.ceew.in/sites/default/files/how-does-construction-contribute-to-dust-Pollution-in-gurugram.pdf">
+                    [Show]
+                </a>
+            </h4>
+            <p>
+                Construction activities generate coarse and fine particulate matter, especially in expanding urban regions.
+            </p>
+            <h4>Key Sources</h4>
+            <ul>
+                <li>
+                    Building construction
+                    <a href="https://www.unep.org/resources/report/global-status-report-buildings-and-construction-20242025" class="external-link"
+                        target="_blank">
+                    </a>
+                </li>
+                <li>
+                    <a>
+                        Demolition activities
+                    </a>
+                </li>
+                <li>
+                    <a>
+                        Unpaved roads
+                    </a>
+                </li>
+                <li>
+                    <a>
+                        Mining operations
+                    </a>
+                </li>
+            </ul>
+            <h4>Pollutants</h4>
+            <ul>
+                <li>PM₁₀</li>
+                <li>PM₂.₅</li>
+                <li>Silica dust</li>
+            </ul>
+            <h4>Regiional Evidence</h4>
+            <ul>
+                <li>
+                    Studies in Indian cities show that road dust can contribute up to 40% of PM₁₀ levels during dry seasons.
+                </li>
+            </ul>
+            <br>
+
+            <h4>5. Agriculture Activities 
+                <a href="https://en.wikipedia.org/wiki/Agricultural_pollution">
+                    [Show]
+                </a>
+            </h4>
+            
+            <p>
+                Modern agricultural practices also contribute significantly to air pollution.
+            </p>
+            <h4>Pollution Drivers</h4>
+            <ul>
+                <li>
+                    <a>
+                        Use of fertilizers and pesticides
+                    </a>
+                </li>
+                <li>
+                    <a>
+                        Ammonia (NH₃) emissions from livestock
+                    </a>
+                </li>
+                <li>
+                    <a>
+                        Stubble burning
+                    </a>
+                </li>
+            </ul>
+            <h4>Pollutants</h4>
+            <ul>
+                <li>
+                    <a>
+                        Ammonia (NH₃)
+                    </a>
+                </li>
+                <li>
+                    <a>
+                        PM₂.₅ (secondary formation)
+                    </a>
+                </li>
+                <li>
+                    <a>
+                        Methane (CH₄)
+                    </a>
+                </li>
+            </ul>
+            <h4>Scientific Findings</h4>
+            <ul>
+                <li>
+                    According to FAO, agriculture accounts for nearly 90% of global ammonia emissions, 
+                    which play a key role in secondary PM₂.₅ formation.
+                </li>
+            </ul>
+            <br>
+
+            <h4>6. Natural Pollution Sources
+                <a href="https://www.clarity.io/blog/natural-sources-of-air-pollution">
+                    [Show]
+                </a>
+            </h4>
+            <p>
+                Although not controllable, natural sources can temporarily elevate pollution levels.
+            </p>
+            <h4>Examples</h4>
+            <ul>
+                <li>
+                    <a>
+                        Dust storms
+                    </a>
+                </li>
+                <li>
+                    <a>Forest fires</a>
+                </li>
+                <li>
+                    <a>
+                        Volcanic eruptions
+                    </a>
+                </li>
+                <li>
+                    <a>
+                        Sea salt aerosols
+                    </a>
+                </li>
+            </ul>
+            <h4>Impact</h4>
+            <ul>
+                <li>Wildfires have been shown to raise PM₂.₅ concentrations by several hundred µg/m³ during extreme events.</li>
+                <li>Climate change has increased the frequency and intensity of such events globally.</li>
+            </ul>
+            <br>
+
+            <h4>Key References & Authoritative Sources</h4>
+            <ul>
+                <li>
+                    World Health Organization
+                    <a href="https://www.who.int/">
+                        (WHO)
+                    </a>
+                    Ambient AIr Pollution Reports
+                    <a href="https://www.who.int/data/gho/data/themes/air-pollution/who-air-quality-database" class="external-link" target="_blank">
+                    </a>
+                </li>
+                <li>
+                    Central Pollution Control Board
+                    <a href="https://cpcb.nic.in/">
+                        (CPCB)
+                    </a>
+                    ,India
+                </li>
+                <li>
+                    United States Environmental Protection Agency
+                    <a href="https://www.epa.gov/">
+                        (EPA)
+                    </a>
+                </li>
+                <li>
+                    International Energy Agency
+                    <a href="https://www.iea.org/">
+                        (IEA)
+                    </a>
+                </li>
+                <li>
+                    Food and Agriculture Organization
+                    <a href="https://www.fao.org/home/en">
+                        (FAO)
+                    </a>
+                </li>
+                <li>
+                    IQAir-
+                    <a href="https://www.drishtiias.com/daily-updates/daily-news-analysis/world-air-quality-report-2024" class="external-link" target="_blank">
+                        Global Air Quality Reports
+                    </a>
+                </li>
+                <li>
+                    Air Quality Assessment by IIT Kanpur-->
+                            
+                            <a href="https://environment.rajasthan.gov.in/content/dam/environment/RPCB/EnvironmentalReport/Final-Report-Source-Apportionmnent-Study-Jaipur-IITKanpur.pdf">
+                                Final Report
+                            </a>
+
+                    
+                </li>
+            </ul>
+        </div>
+
+
+    </div>
+
+</div>
+
+
+
+{% endblock %}

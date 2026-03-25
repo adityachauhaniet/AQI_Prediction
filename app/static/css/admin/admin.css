@@ -1,0 +1,215 @@
+/* -------------------------- GLOBAL RESET --------------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.admin-body {
+    font-family: 'Segoe UI', sans-serif ;
+    background: #f4f6f9;
+}
+
+/* ---------------------------------LAYOUT----------------------- */
+
+.admin-layout {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* ------------------------------- SIDEBAR ---------------------- */
+/* Left side me 250ps width ki sidebar full height ka hoga */
+.admin-sidebar {
+    width: 250px;
+    background: #1E293B;
+    color: #ecf0f1;
+    padding: 30PX 20px;
+/* 
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+    scrollbar-width: thin; */
+}
+
+.sidebar-header {
+    margin-bottom: 40px;
+    font-size: 20px;
+    font-weight: 600;
+    /* text-align: center; */
+}
+
+.sidebar-nav a {
+    display: block;
+    color: #cbd5e1;
+    text-decoration: none;
+    padding: 10px 10px;
+    margin-bottom: 8px;
+    border-radius: 6px;
+    transition: 0.3s;
+}
+
+.sidebar-nav a:hover {
+    background: #334155;
+    color: white;
+}
+
+/* ------------------------------- MAIN AREA ---------------------- */
+
+.admin-main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* --------------------TOPBAR-----------------   */
+
+.admin-topbar {
+    background: white;
+    padding: 20px 30px;
+    border-bottom: 1px solid #e2e8f0;
+
+    position: sticky;
+    top: 0;
+    z-index: 1000; /* important */
+}
+
+.admin-topbar h3 {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+/* ------------------------------------ CONTENT ------------------- */
+
+.admin-content {
+    padding: 30px;
+
+    flex: 1;
+    overflow-y: auto;
+    height: 100vh;
+}
+
+
+/* ---------------- DARK MODE ---------------- */
+
+.theme-toggle {
+    margin-left: auto;
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+/* Smooth transition */
+.admin-body {
+    transition: background 0.3s ease, color 0.3s ease;
+}
+ 
+/* Dark background */
+.admin-body.dark-mode {
+    background: #0f172a;
+    color: #e2e8f0;
+}
+
+/* Dark Sidebar */
+.admin-body.dark-mode .admin-sidebar {
+    background: #0f172a;
+    color: #e2e8f0;
+}
+
+/* Dark Topbar */
+.admin-body.dark-mode .admin-topbar {
+    background: #1e293b;
+    color: white;
+    border-bottom: 1px solid #334155;
+}
+
+/* Dark content area */
+.admin-body.dark-mode .admin-content {
+    background: #0f172a;
+}
+
+/* Sidebar links in dark */
+.admin-body.dark-mode .sidebar-nav a {
+    color: #94a3b8;
+}
+
+.admin-body.dark-mode .sidebar-nav a:hover {
+    background: #13293b;
+    color: white;
+}
+
+
+
+
+
+
+
+/* ---------------------------------MOBILE RESPONSIVE----------------------- */
+
+/* Hide Humburger on Desktop */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 22px;
+    cursor: pointer;
+    margin-right: 15px;
+}
+
+/* --------------------TABLE---------------- */
+@media (max-width: 1024px) {
+
+    .admin-sidebar {
+        width: 200px;
+        padding: 20px 15px;
+    }
+
+    .admin-content {
+        padding: 20px;
+    }
+}
+
+
+/* ----------------MOBILE----------------- */
+@media (max-width: 768px) {
+
+    .admin-layout {
+        flex-direction: column;
+    }
+
+    /* sidebar hidden by default */
+    .admin-sidebar {
+        position: fixed; /*sab apni jagah ho jayenge*/
+        left: -260px; /*sidebar ko left me hide kar denge*/
+        top: 0; /*sab upper ki taraf shift kar denge*/
+        height: 100%; /*thoda niche aayega*/
+        z-index: 999;
+        transition: 0.3s ease;
+    }
+
+    /* Show when toggle */
+    .admin-sidebar.show {
+        left: 0;
+    }
+
+    /* show humburger on MObile */
+    .menu-toggle {
+        display: inline-block;
+    }
+
+    .admin-topbar {
+        display: flex;
+        align-items: center;
+    }
+
+    .admin-main {
+        width: 100%;
+    }
+
+    .admin-content {
+        padding: 15px;
+    }
+
+}

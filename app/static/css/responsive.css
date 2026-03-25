@@ -1,0 +1,119 @@
+/* media queries, Mobile handling*/
+/* @media (max-width: 768px) {
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .link-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .dashboard-page .container {
+        grid-template-columns: 1fr;
+    }
+} */
+
+
+/* GLOBAL RESPONSIVE FIXES */
+
+@media (max-width: 768px) {
+
+    /* containers */
+    .container, .main-container,
+    .prediction-box, .prediction-body,
+    .air-content {
+
+        width: 95%;
+        margin: 0 auto;
+        padding: 15px;
+    }
+
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+    .container,
+    .main-container,
+    .prediction-box,
+    .prediction-body,
+    .air-content {
+        width: 100%;
+        padding: 10px;
+    }
+}
+
+/* -------------------------------------HEADER & NAVIGATION------------------------------- */
+@media (max-width: 768px) {
+    .header {
+        height: auto;
+        padding: 10px;
+    }
+
+    .navigation nav {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width: 480px) {
+    .navigation nav {
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+    }
+}
+
+
+/* --------------------------------Make prediction form responsive----------------------------------- */
+@media (max-width: 786px) {
+    .prediction-body {
+        max-width: 100%;
+    }
+
+    .prdiction-form input {
+        width:100px;
+    }
+}
+
+@media (max-width: 480px) {
+    .prdiction-form .btn-submit {
+        width: 100%;
+    }
+}
+
+
+/* -------------------------------Make reports page responsive------------------------------------- */
+@media (max-width: 768px) {
+    .reports-table-container {
+        overflow-x: auto;
+    }
+}
+
+/* --------------------------------Make dashboard responsive--------------------------------------------- */
+@media(max-width: 768px) {
+    .dashboard-page .container {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+}
+
+/* -------------------------------------Make images and videos responsive----------------------------------------- */
+@media(max-width: 768px) {
+    img, video {
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+
+/* ------------------------------------------Make forms responsive (global)-------------------------------------------- */
+@media (max-width: 768px) {
+    input, select, textarea, button {
+        width: 100%;
+        max-width: 100%;
+    }
+}
+
+

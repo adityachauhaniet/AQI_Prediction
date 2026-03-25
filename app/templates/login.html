@@ -1,0 +1,49 @@
+{% set body_class = 'auth-page' %}
+{% extends 'base.html' %}
+
+{% block title %} Login{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/auth.css') }}">
+{% endblock %}
+
+
+{% block content %}
+
+<div class="login-box">
+    <h3>Login Here</h3><br>
+    <form method="POST" action="{{ url_for('auth.login') }}" class="login-form">
+        {{ form.hidden_tag() }}
+        
+        <!-- ----------------For Email/Username---------------------- -->
+        <div class="form-group">
+            {{ form.email_or_username.label }}
+            {{ form.email_or_username(class="input-box", placeholder="Enter your email or username") }}
+            {% for error in form.email_or_username.errors %}
+                <span class="error-message">{{ error }}</span>
+            {% endfor %}
+        </div><br>
+
+        <!-- ----------------For Password---------------------- -->
+         <div class="form-group">
+             {{ form.password.label }}
+             {{ form.password(class="input-box", placeholder="Enter your password") }}
+             {% for error in form.password.errors %}
+                <span class="error-message">{{ error }}</span>
+            {% endfor %}
+         </div><br>
+
+         <!-- ----------------For Login Button---------------------- -->
+          {{ form.submit(class="btn-submit") }}
+    </form><br><br>
+
+    <!-- ----------------------Register Button---------------------- -->
+    <div class="for-new-user">
+        <p>For new user</p>
+        <a href="{{ url_for('auth.register') }}">Create an account</a>
+    </div>
+
+</div>
+
+{% endblock %}
+ 

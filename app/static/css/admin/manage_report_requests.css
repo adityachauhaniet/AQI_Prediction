@@ -1,0 +1,137 @@
+.table-container {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+}
+
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+
+    table-layout: fixed;
+}
+
+.admin-table th {
+    background: #1e293b;
+    color: white;
+    font-weight: 600;
+    
+    text-align: left;
+    padding: 14px 16px;
+    vertical-align: middle;
+    word-wrap: break-word;
+}
+
+.admin-table td {
+    border-bottom: 1px solid #eee;
+
+    align-items: left;
+    padding: 14px 16px;
+    vertical-align: middle;
+    word-wrap: normal;
+}
+
+.admin-table tr {
+    border: 1px solid rgba(255,255,255,0.05);
+    backdrop-filter: blur(12px);
+}
+
+.admin-table tr:hover {
+    background: #f8fafc;
+}
+
+.admin-table th:nth-child(1),
+.admin-table td:nth-child(1) { width: 18%; }
+
+.admin-table th:nth-child(2),
+.admin-table td:nth-child(2) { width: 28%; }
+
+.admin-table th:nth-child(3),
+.admin-table td:nth-child(3) { width: 20%; }
+
+.admin-table th:nth-child(4),
+.admin-table td:nth-child(4) { width: 12%; }
+
+.admin-table th:nth-child(5),
+.admin-table td:nth-child(5) { width: 22%; }
+
+/* -----------------DARK MODE---------------- */
+
+.admin-body.dark-mode .table-container {
+    background: #1e293b;
+}
+
+.admin-body.dark-mode .admin-table th {
+    background: #0f172a;
+    /* color: white; */
+}
+
+.admin-body.dark-mode .admin-table td {
+    border-bottom: 1px solid #334155;
+}
+
+.admin-body.dark-mode .admin-table tr:hover {
+    background: #334155;
+}
+
+
+
+/* --------------------------------RESOONSIVE -------------------- */
+
+/* ===================== RESPONSIVE ===================== */
+
+/* Tablet */
+@media (max-width: 1024px) {
+    .table-container {
+        overflow-x: auto;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+
+    .table-container {
+        padding: 10px;
+    }
+
+    /* Hide header */
+    .admin-table thead {
+        display: none;
+    }
+
+    /* Convert table → card */
+    .admin-table,
+    .admin-table tbody,
+    .admin-table tr,
+    .admin-table td {
+        display: block;
+        width: 100%;
+    }
+
+    /* Each row = card */
+    .admin-table tr {
+        width: 100%;
+        background: #1e293b;
+        margin-bottom: 15px;
+        border-radius: 12px;
+        padding: 16px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    }
+
+    /* Table cell */
+    .admin-table td {
+        border: none;
+        padding: 8px 0;
+        position: relative;
+    }
+
+    /* Label (IMPORTANT ⭐) */
+    .admin-table td::before {
+        content: attr(data-label);
+        font-weight: 600;
+        color: #94a3b8;
+        display: block;
+        margin-bottom: 6px;
+        line-height: 1.4;
+    }
+}

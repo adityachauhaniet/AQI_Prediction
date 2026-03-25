@@ -1,0 +1,106 @@
+{% extends 'admin/admin_base.html' %}
+
+ 
+
+
+<!-- Page Title -->
+{%block title %}Manage Reports{% endblock %}
+
+<!-- Topbar Title -->
+<!-- {% block page_title %}Manage Reports{% endblock %} -->
+
+
+{% block extra_css %}
+
+<link rel="stylesheet"
+      href="{{ url_for('static', filename='css/admin/manage_reports.css') }}">
+
+{% endblock %}
+
+
+<!-- Main Content -->
+{% block content %}
+
+    <!-- ---------------------------------PAGE HEADING------------------------- -->
+
+    <div class="page-header">
+
+        <!-- Page Title -->
+         <h2>Manage Reports</h2>
+
+         <!-- Upload button, Admin ko direct upload pager pe bhejega -->
+          <a href="{{ url_for('pages.upload_report') }}" class="btn-primary">
+                + Upload New Report
+          </a>
+    </div>
+
+
+
+
+
+    <!-- ---------------------------------REPORTS TABLE CONTAINER------------------------- -->
+    <div class="table-container"> <!-- Scrollable wrapper so table mobile me break nahi hoga.-->
+
+        <h3>All Reports</h3>
+
+        <!-- Report Table -->
+        <table class="admin-table"> <!-- Main Admin Data table -->
+
+            <!-- Table Header -->
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Year</th>
+                    <th>Upload</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+
+
+            <!-- TABLE BODY -->
+            <tbody>
+
+                {% for report in reports %}
+                    <tr>
+
+                        <!-- Report title -->
+                        <td>{{ report.title }}</td>
+
+                        <!-- Report year -->
+                        <td>{{ report.year }}</td>
+
+                        <!-- Report upload date -->
+                        <td>{{ report.created_at.strftime('%d %b %Y') }}</td> <!-- 05 Mar 2026 -->
+
+                   
+ 
+                        <!-- Admin actions -->
+                        <td class="actions">
+                            
+                                <!-- View PDF -->
+                                <a href="{{ url_for('static', filename='reports/' + report.file_name)}}"
+                                target="_blank" class="btn-view">
+                                    View
+                                </a>
+ 
+                                <!-- Delete Report -->
+                                <form method="POST"
+                                        action="{{ url_for('pages.delete_report', report_id=report.id) }}"
+                                        style="display: inline;"
+                                        onsubmit="return confirm('Delete this report?');">
+                                
+                                    <button type="submit" class="btn-delete">
+                                        Delete
+                                    </button>
+
+                                </form>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+            
+        </table> 
+        
+        
+    </div>
+{% endblock %}

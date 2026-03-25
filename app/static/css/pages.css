@@ -1,0 +1,31 @@
+/* about, air, ranking static pages */
+.static-page .container2 {
+    max-width: 1100px;
+    margin: auto;
+    background: rgba(255,255,255,0.9);
+    padding: 30px;
+    border-radius: 10px;
+}
+
+.external-link::after {
+    content: "↗";
+    font-size: 0.9em;
+   margin-left: 4px;
+}
+
+.external-link {
+    color:  #111111;
+    text-decoration: none;
+}
+.external-link:hover {
+    color: #0d47a1;
+}
+
+/* Header */
+ .about-header {
+    /* background-color: aqua; */
+    border-bottom: 2px solid #ddd;
+    text-align: center;
+    margin-bottom: 30px;
+    /* font-size: 50px; */
+}

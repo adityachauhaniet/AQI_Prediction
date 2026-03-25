@@ -1,0 +1,152 @@
+/* login, register */
+.auth-page .container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.login-box, .registration-box {
+    width: 100%;
+    max-width: 420px; /* Box ke size ko control karne ke liye */
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+} 
+
+/* Ab Input box me dekhte hain*/
+.form-group {
+    display: flex;
+    flex-direction: column; /* Lebel aur box ke bich me gap*/
+    gap: 6px;
+    margin-bottom: 18px;
+}
+
+/* Input Full Width */
+.input-box {
+    width: 100%; 
+    padding: 12px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+     background: rgba(255,255,255,0.9); /* 🔥 better contrast */
+}
+
+.login-box h3, .registration-box h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    padding: 10px;
+    border-bottom: 2px solid #ddd;
+}
+
+.btn-submit{
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background: #0d47a1;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 0 auto;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.btn-submit:hover {
+    background: #0b3d91;
+    transform: scale(1.05);
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+}
+
+.registration-box .for-old-user, .login-box .for-new-user{
+    text-align: center;
+    margin-top: 15px;
+    font-size: 20px;
+    /* color: #ddd; */
+}
+
+.registration-box .for-old-user a, .login-box .for-new-user a{
+    color: #0d47a1;
+    text-decoration: none;
+    font-weight: 1000;
+}
+
+.login-box form {
+    padding: 10px;
+}
+
+ .form-group label{
+    margin-bottom: 5px;
+    font-weight: 500;
+    color: #ddd;
+    font-size: 14px;
+}
+
+
+.input-box::placeholder {
+    color: #444444;   /* dark gray */
+    opacity: 1;       /* ensures full visibility */
+}
+
+
+
+.registration-box a, .login-box a{
+    text-decoration: none;
+}
+
+
+/* -------------------------------------------- RESPONSIVE --------------------------- */
+@media (max-width: 768px) {
+
+    .login-box, .registration-box {
+        padding: 20px;
+    }
+
+    .btn-submit {
+        font-size: 15px;
+    }
+}
+
+
+@media (max-width: 480px) {
+
+    .login-box, .registration-box {
+        margin-top: 20px;
+        padding: 20px;
+        border-radius: 10px;
+    }
+
+     .auth-page .container {
+        align-items: flex-start;   /* 🔥 top align (important) */
+    }
+    
+    h3 {
+        font-size: 18px;
+    }
+
+    .form-group label {
+        font-size: 13px;
+    }
+
+    .input-box {
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    .btn-submit {
+        font-size: 14px;
+    }
+
+}
+
+
+
+
+

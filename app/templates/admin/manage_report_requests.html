@@ -1,0 +1,45 @@
+{% extends 'admin/admin_base.html' %}
+
+{% block title %} Manage Report Requests {% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet"
+      href="{{ url_for('static', filename='css/admin/manage_report_requests.css') }}">
+{% endblock %}
+
+{%  block content %}
+
+<div class="page-header">
+    <h2>Manage Report Requests</h2>
+    <p>Review and manage user-submitted report requests.</p>
+</div>
+
+<div class="table-container">
+    <table class="admin-table">
+
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Organization</th>
+                <th>Report ID</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for r in requests %}
+            <tr>
+                <td data-label="Name">{{ r.name }}</td>
+                <td data-label="Email">{{ r.email }}</td>
+                <td data-label="Organization">{{ r.organization }}</td>
+                <td data-label="Report ID">{{ r.report_id }}</td>
+                <td data-label="Date">{{ r.requested_at.strftime('%d %b %Y') }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+
+    </table>
+</div>
+
+{% endblock %}

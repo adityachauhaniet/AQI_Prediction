@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Admin Panel{% endblock %}</title>
+
+    <!-- Admin Specific CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/admin/admin.css') }}">
+    <!-- page specific css -->
+    {% block extra_css %}{% endblock %}
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body class="admin-body" id="adminBody">
+     
+    <div class="admin-layout">
+ 
+        <!-- -----------------------SIDEBAR----------- -->  
+
+        <aside class="admin-sidebar" id="adminSidebar">
+
+            <div class="sidebar-header">
+                <h2>AQI Admin</h2>
+            </div>
+ 
+            <nav class="sidebar-nav">
+                <a href="{{ url_for('dashboard.dashboard') }}">Home</a>
+                <a href="{{ url_for('pages.admin_dashboard') }}">Dashboard</a>
+                <a href="{{ url_for('pages.admin_reports') }}">Manage Reports</a>
+                <a href="{{ url_for('pages.contact_messages') }}">Contact Messages</a>
+                <a href="{{ url_for('pages.upload_report') }}">Upload Report</a>
+                <a href="{{ url_for('pages.admin_users') }}">Manage Users</a>
+                <a href="{{ url_for('pages.admin_predictions')}}">Manage Predictions</a>
+                <a href="{{ url_for('pages.admin_report_requests') }}">Manage Report Requests </a>
+                <a href="{{ url_for('auth.logout') }}">Logout </a>
+            </nav>
+
+        </aside>
+
+
+        <!-- -------------------------------------MAIN AREA---------------------------- -->
+        <div class="admin-main">
+
+            <!-- -------Topbar---------- -->
+            <header class="admin-topbar">
+
+                <!-- Mobile hamburger -->
+                <button class="menu-toggle" onclick="toggleSidebar()">
+                    ☰
+                </button>
+
+                <h3>{% block page_title %}Admin Dashboard{% endblock %}</h3>
+
+                <!-- Dark Mode Toggle -->
+                 <button class="theme-toggle" onclick="toggleTheme()">
+                    🌙
+                 </button>
+            </header>
+
+            <!-- -------Dynamic Content------ -->
+             <main class="admin-content">
+                {% block content %}
+                <!-- Dynamic content will be injected here -->
+                {% endblock %}
+             </main>
+
+        </div>
+
+    </div>
+</body>
+
+<!-- ---------------JS----------------- -->
+<script>
+function toggleSidebar() {
+    document.getElementById("adminSidebar").classList.toggle("show");
+}
+
+// ----------------------Dark / Light Mode-----------------------
+
+function toggleTheme () {
+    const body = document.getElementById("adminBody");
+    body.classList.toggle("dark-mode");
+
+    //save theme prefere4nce
+    if (body.classList.contains("dark-mode")) {
+        localStorage.setItem("adminTheme", "dark");
+    }
+    else {
+        localStorage.setItem("adminTheme", "light");
+    }
+}
+
+// Load saved theme on page load
+window.onload = function() {
+    const savedTheme = localStorage.getItem("adminTheme");
+
+    if(savedTheme === "dark") {
+        document.getElementById("adminBody").classList.add("dark-mode");
+    }
+};
+
+</script>
+
+
+</body>
+</html>

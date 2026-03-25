@@ -1,0 +1,36 @@
+{% set body_class = 'static-page' %}
+{% extends 'base.html' %}
+
+{% block title %}Weather impact {% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/pages.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<div class="container2">
+
+    <p>This is Weather Impact Page</p>
+
+    <div class="ranking-content">
+        
+        <div class="weather-impact-ranking">
+
+            <div class="ranking-header">
+                <h2>Weather Impact</h2>
+            </div>
+        
+            <!-- <div class="about-image">
+                <img src="{{ url_for('static', filename='images/weather_impact.jpg') }}" alt="Weather Impact Image">
+            </div>
+         -->
+            <h4>Comming Soon!</h4>
+
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock %}

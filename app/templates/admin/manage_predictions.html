@@ -1,0 +1,78 @@
+{% extends 'admin/admin_base.html' %}
+
+{% block title %} Manage Predictions {% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet"
+      href="{{ url_for('static', filename='css/admin/manage_predictions.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<div class="page-header">
+    <h2>Manage Predictions</h2>
+</div>
+
+
+<div class="table-container">
+
+    <table class="admin-table">
+
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>CO</th>
+                <th>Ozone</th>
+                <th>NO2</th>
+                <th>PM2.5</th>
+                <th>AQI</th>
+                <th>User</th>
+                <th>Date</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            {% for p in predictions %}
+            <tr>
+
+                <td>{{ p.id }}</td>
+                <td>{{ p.co }}</td>
+                <td>{{ p.ozone }}</td>
+                <td>{{ p.no2 }}</td>
+                <td>{{ p.pm25 }}</td>
+                
+                <!-- AQI Badge -->
+                <td>
+                    <span class="aqi-badge">{{ p.predicted_aqi }}</span>
+                </td>
+
+                <td>{{ p.user_id }}</td>
+
+                <td>
+                    {{ p.predicted_at.strftime('%d %b %Y') }}
+                </td>
+
+                <td class="actions">
+                    <form method="POST"
+                    action="{{ url_for('pages.delete_prediction', pred_id = p.id) }}"
+                    onsubmit="return confirm('Delete this prediction?');">
+
+                    <button class="btn-delete">Delete</button>
+                    </form>
+                </td>
+
+            </tr>
+            {% endfor %}
+
+        </tbody>
+
+
+    </table>
+
+</div>
+
+
+
+{% endblock %}

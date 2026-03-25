@@ -1,0 +1,80 @@
+{%  extends 'admin/admin_base.html'  %}
+
+{% block title %}Contact Messages{% endblock %}
+
+
+
+{% block extra_css %}
+<link rel="stylesheet"
+      href="{{ url_for('static',
+      filename='css/admin/contact_messages.css') }}">
+{% endblock %}
+
+
+
+{% block content %}
+
+
+<div class="inbox-layout">
+
+    <!-- Left Panel -->
+    <div class="inbox-left">
+
+        <!-- Search bar -->
+         <form method="GET" class="search_bar">
+            <input type="text" name="q" placeholder="Search messages..."
+            value="{{ request.args.get('q', '') }}">
+         </form>
+
+         <!-- Message List -->
+          {% for msg in messages %}
+          <!-- unread->bold styling and active->currently opened highlight -->
+        <div class="message-item 
+            {% if not msg.is_read %}unread{% endif %}
+            {% if selected_message and selected_message.id == msg.id %}active{% endif %}">
+
+            <a href="{{ url_for('pages.contact_messages', message_id=msg.id) }}">
+                <h4>{{ msg.name }}</h4>
+                <p>{{ msg.message[:60] }}...</p>
+            </a>
+
+            <div class="message-actions">
+                {% if not msg.is_read %}
+                <a href="{{ url_for('pages.mark_message_read', msg_id=msg.id) }}">
+                    Mark Read
+                </a>
+                {% endif %}
+
+                <form method="POST"
+                      action="{{ url_for('pages.delete_message', msg_id=msg.id) }}">
+                    <button type="submit">Delete</button>
+                </form>
+            </div>
+
+        </div>
+        {% endfor %}
+
+    </div>
+
+    <!-- RIGHT PANEL (Preview) -->
+    <div class="inbox-right">
+       {% if selected_message %}
+        <div class="message-preview">
+            <h3>{{ selected_message.name }}</h3>
+            <p><strong>Email:</strong> {{ selected_message.email }}</p>
+            <p class="full-message">
+                {{ selected_message.message }}
+            </p>
+            <small>
+                {{ (selected_message.created_at + timedelta(hours=5, minutes=30)).strftime('%d %b %Y %I:%M %p') }}
+        </div>
+        {% else %}
+        <div class="empty-preview">
+            Select a message to view details
+        </div>
+        {% endif %}
+    </div>
+ 
+</div>
+
+{% endblock %}

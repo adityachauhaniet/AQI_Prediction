@@ -1,0 +1,260 @@
+
+
+
+/* -----------------------------------------------MANAGE REPORTS--------------------------------------- */
+
+/* -----------------------------------------------TABEL SECTION ---------------------------- */
+.page-header {
+    display: flex;
+    justify-content: space-between; /*upload buttn right side me chala jayega*/
+    align-items: center; /*block ke column me center me aa jayega*/
+    margin-bottom: 30px; /*All Reports ka section 30px niche shift ho jayega*/
+}
+
+/* Upload button */
+
+.btn-primary {
+    background: #2563eb;
+    color: white;
+    padding: 10px 18px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.btn-primary:hover {
+    background: #1d4ed8;
+}
+
+
+/* --------------TABLE-------------- */
+
+.table-container {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+}
+
+
+.section-title {
+    margin-bottom: 20px;
+}
+
+
+/* * Table wrapper  */
+.table-container{
+    overflow-x: auto;
+}
+
+
+/* * Admin table */
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+/* * Table header */
+.admin-table thead {
+    background: #1e293b;
+    color: white;
+}
+
+/* Table cells */
+.admin-table th {
+    padding: 14px;
+    text-align: left;
+}
+
+.admin-table td {
+    padding: 14px ;
+    border-bottom: 1px solid #eee;
+}
+
+
+/* Row border */
+.admin-table tbody tr:hover {
+    background: #f8fafc;
+}
+
+/* ----------ACTION BUTTONS----------- */
+
+/* Action columns */
+.actions{
+    display: flex;
+    gap: 10px;
+}
+
+.btn-view {
+    background: #2563eb;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 5px;
+    text-decoration: none;
+    transform: all 0.3s ease;
+    height: 28px;
+    text-align: center;
+}
+ 
+.actions a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.btn-view:hover {
+    background: #1d4ed8;
+    transform: scale(1.05);
+}
+
+/* Delete button */
+.btn-delete{
+    background: #ef4444;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-delete:hover {
+    background: #dc2626;
+    transform: scale(1.05);
+
+}
+
+
+/* ---------------------------------------DARK MODE TABLE-------------------------------- */
+
+.admin-body.dark-mode .table-container {
+    background: #0f172a;
+}
+
+.admin-body.dark-mode .admin-table {
+    background: #1e293b;
+    color: #e2e8f0;
+}
+
+.admin-body.dark-mode .admin-table td {
+    border-bottom: 1px solid #334155;
+}
+
+.admin-body.dark-mode .admin-table th {
+    background: #0f172a;
+    color: #ffffff;   
+}
+
+.admin-body.dark-mode .admin-table thead {
+    background: #0f172a;
+    color: #ffffff;
+}
+
+.admin-body.dark-mode .admin-table tbody tr:hover {
+    background: #243247;
+}
+
+
+.admin-body.dark-mode .admin-table tr {
+    background: #1e293b;
+}
+
+.admin-body.dark-mode .admin-table td::before {
+    color: #94a3b8;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* -------------------------------------------------RESPONSIVE------------------------ */
+
+/* --------------------------TABLET------------------- */
+@media (max-width: 1024px) {
+    .page-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .btn-primary {
+        width: fit-content;
+    }
+
+    .tablet-container {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+}
+
+
+    @media (max-width: 768px) {
+        .actions {
+            flex-direction: column;
+            gap: 6px;
+        }
+    
+        .btn-view, .btn-delete {
+            width: 100%;
+            text-align: center;
+        }
+    }
+
+
+/* --------------------MOBILE-------------- */
+
+@media (max-width: 768px) {
+
+    .admin-table thead {
+        display: none;
+    } 
+
+    .admin-table,
+    .admin-table tbody,
+    .admin-table tr,
+    .admin-table td {
+        display: block;
+        width: 100%;
+    }
+
+    .admin-table tr {
+        background: white;
+        margin-bottom: 15px;
+        border-radius: 10px;
+        padding: 15px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    }
+
+    .admin-table td {
+        border: none;
+        padding: 8px 0;
+        position: relative;
+    }
+
+    .admin-table td::before {
+        font-weight: 600;
+        color: #64748b;
+        display: block;
+        margin-bottom: 4px;
+    }
+
+    .admin-table td:nth-child(1)::before { content: "Title"; }
+    .admin-table td:nth-child(2)::before { content: "Year"; }
+    .admin-table td:nth-child(3)::before { content: "Upload Date"; }
+    .admin-table td:nth-child(4)::before { content: "Actions"; }
+
+    .actions {
+        flex-direction: row;
+        gap: 8px;
+        margin-top: 8px;
+    }
+}

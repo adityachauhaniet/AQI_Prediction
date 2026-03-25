@@ -1,0 +1,63 @@
+{% set body_class = 'dashboard-page' %}
+{% extends 'base.html' %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+{% endblock %}
+
+
+
+
+<body class="dashboard-page">
+
+
+</body>
+
+{% block content %}
+
+    <!-- <div class="video-wrapper"> -->
+
+        
+           <!-- BACKGROUND VIDEO -->
+           <!-- <video autoplay muted loop playsinline class="bg-video"> -->
+                 <source src="{{ url_for('static', filename='animations/background/UI_bckimg.mp4') }}" type="video/mp4">
+           <!-- </video> -->
+
+        
+         <!-- Dashboard CONTENT -->
+            <div class="dashboard-container">
+        
+        
+                <!-- ------------------LEFT SIDEBAAR(DASHBOARD/NAVIGATION) -->
+                <aside class="sidebar">
+                    <h3>Dashboard</h3>
+        
+                    <ul>
+                        <li><a href="{{ url_for('pages.find_aqi_by_city')}}">Find AQI by place name</a></li>
+                        <li><a href="{{ url_for('pages.about_us') }}">About the project</a></li>
+                    </ul>
+                </aside>
+        
+                <!-- ---------------------------------MAIN CONTENT (Predict AQI Block) -->
+                <section class="content-area">
+                    <h2>Predict AQI</h2>
+        
+                    <p>
+                        Use the AQI Prediction feature to to estimate air quality
+                    based on pollutant concentration values.
+                    </p>
+        
+                    <a href="{{ url_for('prediction.view_prediction') }}" class="btn">Go to Prediction Page</a>
+                
+                </section>
+        
+        
+            </div>
+
+
+    <!-- </div> -->
+
+{% endblock %}
+

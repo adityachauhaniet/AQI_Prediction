@@ -1,0 +1,62 @@
+{% set body_class = 'auth-page' %}
+{% extends 'base.html' %}
+
+{% block title %}Registration{% endblock %}
+
+
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/auth.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<div class="registration-box">
+    <h3>Register Here</h3>
+    <br>
+    <form method="POST" action="{{ url_for('auth.register') }}" class="registration-form">
+        {{ form.hidden_tag() }}
+        
+        <!-- ----------------For Username---------------------- -->
+        <div class="form-group">
+            {{ form.username.label }}
+            {{ form.username(class="input-box", placeholder="Enter your username") }}
+            {% for error in form.username.errors %}
+                <span class="error-message">{{ error }}</span>
+            {% endfor %}
+        </div><br>
+
+        <!-- ----------------For Email---------------------- -->
+         <div class="form-group">
+            {{ form.email.label }}
+            {{ form.email(class="input-box", placeholder="Enter your email") }}
+            {% for error in form.email.errors %}
+                <span class="error-message">{{ error }}</span>
+            {% endfor %}
+         </div><br>
+
+
+        <!-- ----------------For Password---------------------- -->
+         <div class="form-group">
+            {{ form.password.label }}
+            {{ form.password(class="input-box", placeholder="Enter your password") }}
+            {% for error in form.password.errors %}
+                <span class="error-message">{{ error }}</span>
+            {% endfor %}
+         </div><br>
+
+        <!-- ----------------For Submit Button---------------------- -->
+         {{ form.submit(class="btn-submit") }}
+
+    </form><br>
+
+    <!-- ----------------------Login Button---------------------- -->
+     <div class="for-old-user">
+         <p>Already have an account?</p>
+         <a href="{{ url_for('auth.login') }}">Login here</a>
+     </div>
+
+</div>
+
+{% endblock %}
+ 

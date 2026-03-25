@@ -1,0 +1,62 @@
+<!-- User → Report List Page
+     → DB se reports fetch
+     → PDF download via report_id
+ -->
+
+ <!-- {% set body_class = 'static-page' %} -->
+{% extends 'base.html' %}
+{% block title %} Reports List {% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/reports.css') }}">
+{% endblock %}
+
+
+
+
+{% block content %}
+
+
+    <!-- <div class="main-container"> -->
+    <div class="container2">
+
+
+        <h2 class="section-title">Availabe Reports</h2>
+        
+        <div class="reports-grid">
+            {% for report in reports %}
+               <div class="report-card">
+
+                      <!--  REPORT IMAGE  -->
+                    <!-- <img 
+                    src="{{ url_for('static', filename='images/reports/report_default.jpg') }}"
+                    alt="Report Image"
+                    class="report-image"
+                    > -->
+
+                    <div class="report-meta">
+                        <span class="report-year">{{ report.year }}</span>
+                    </div>
+
+
+                    <h3>{{  report.title }}</h3>
+                    <p>{{  report.description[:120] }}...</p>
+                    <!-- <p><b>Year:</b>{{  report.year }}</p> -->
+        
+                    <a href="{{ url_for('pages.report_detail', report_id=report.id) }}" class="btn">View Details</a>
+               
+                </div>
+            {% else %}
+                <p>No reports available at the moment.</p>
+            {% endfor %}
+        </div>
+
+
+    </div>
+
+
+
+
+
+
+{% endblock %}

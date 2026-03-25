@@ -1,0 +1,188 @@
+/* ---------------  wrapper-------------- */
+.contact-wrapper {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+}
+
+/* ---------------  container-------------- */
+.contact-container {
+    max-width: 900px;
+    width: 100%;
+    text-align: center;
+}
+
+/* ---------------  HEADER---------------- */
+.contact-header h2 {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: white;
+}
+
+.contact-header p{
+    color: #ddd;
+    margin-bottom: 30px;
+}
+
+/* ---------------CARD--------------------- */
+.contact-card {
+    background: rgba(255, 255, 255, 0.15); /*glass effect*/
+    backdrop-filter: blur(12px);
+    border-radius: 20px;
+    padding: 40px;
+    max-width: 500px;
+    margin: auto;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* --------------------FORM------------------ */
+.form-group {
+    text-align: left;
+    margin-bottom: 18px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: #eee;
+}
+
+/* Inputs */
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.1);
+    color: #eee;
+    outline: none;
+    transition:  0.3s;
+}
+
+/* Placeholde */
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #ccc;
+}
+
+/* Focus effect */
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #4f6ef7;
+    background: 0 0 1px rgba(79, 110, 247, 0.5);
+}
+
+/* --------------------------BUTTON---------------- */
+.submit-btn {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 12px;
+    font-weight: 600px;
+    font-size: 15px;
+    cursor: pointer;
+
+    /* Gradient button */
+    background: linear-gradient(135deg, #4f6ef7, #6c8cff);
+    color: white;
+
+    transition: 0.3s;
+}
+
+.submit-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+}
+
+
+
+
+
+/* -----------------------------------RESPONSIVE-------------------- */
+
+/* --------TABLET----- */
+@media (max-width: 1024px)  {
+
+    /* Container ko thoda compact */
+    .contact-container {
+        max-width: 700px;
+    }
+
+    /* Card padding reduce */
+    .conatct-card {
+        padding: 30px;
+    }
+
+    .contact-header h2 {
+        font-size: 28px;
+    }
+
+}
+
+
+/* ------------MOBILE----------- */
+@media(max-width: 768px) {
+
+    /* wrapper spacing adjust */
+    .contact-wrapper {
+        align-items: flex-start;
+        padding: 20px 15px;
+    }
+
+    /* Full width card */
+    .conatct-card {
+        width: 100%;
+        padding: 25px;
+        border-radius: 16px;
+    }
+
+    /* Header text smaller */
+    .contact-header h2 {
+        font-size: 24px;
+    }
+
+    .contact-header p {
+        font-size: 14px;
+        padding: 0 10px;
+    }
+
+    /* Input compact */
+    .form-group input, 
+    .form-group textarea {
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    /* button full width */
+    .submit-btn {
+        padding: 12px;
+        font-size: 14px;
+    }
+
+}
+    /* --------------------SMALL MOBILE------------ */
+    @media (max-width:  480px) {
+
+        .contact-card {
+            padding: 20px;
+        }
+
+        .contact-header h2 {
+            font-size: 20px;
+        }
+
+        .contact-card p {
+            font-size: 18px;
+        }
+        .form-group label {
+            font-size: 13px;
+        }
+
+    }
+

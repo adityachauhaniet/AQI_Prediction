@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %}Profile{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet"
+      href="{{ url_for('static', filename='css/profile.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<div class="profile-wrapper">
+
+    <div class="profile-card">
+
+        <!-- Profile Image -->
+        <div class="profile-image">
+            <img src="{{ url_for('static', filename='uploads/profile/' + user.profile_image) }}">
+        </div>
+
+        <!-- USER INFO -->
+         <div class="profile-info">
+             <h2>{{ user.username }}</h2>
+             <p>{{ user.email }}</p>
+         </div>
+
+        <!-- Upload Form -->
+        <form method="POST" enctype="multipart/form-data" class="profile-form">
+
+            <input type="file" name="profile_image" accept="image/*">
+
+            <button type="submit">Upload Photo</button>
+
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock %}

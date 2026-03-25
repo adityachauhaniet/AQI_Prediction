@@ -1,0 +1,99 @@
+{% set body_class = 'prediction-page' %}
+{% extends 'base.html' %}
+
+{% block title %} Prediction {% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/prediction.css') }}">
+{% endblock %}
+
+
+
+
+{% block content %}
+<!-- MAIN BLOCK For Prediction-->
+ 
+
+
+    <div class="prediction-box">
+        <h2>Value Prediction</h2>
+
+
+        <!--  AQI PREDICTION BCK IMAGE  -->
+        <!-- <video autoplay muted loop playsinline class="bg-video">
+            <source src="{{ url_for('static', filename='animations/background/aqi-pred-bckimg.mp4') }}" type="video/mp4">
+        </video> -->
+
+        <div class="prediction-body">
+
+            <div class="prediction-container">
+    
+                <form method="POST" action="{{ url_for('prediction.new_prediction') }}" class="prediction-form">
+                    {{ form.hidden_tag() }}
+            
+                    <!-- ----------------For CO---------------------- -->
+                    <div class="form-group">
+                        {{ form.co.label }}
+                        {{ form.co(class="input-box", placeholder="Enter CO value") }}
+                        {% for error in form.co.errors %}
+                            <span class="error-message">{{ error }}</span>
+                        {% endfor %}
+                    </div>
+            
+        
+                    <!-- ----------------For Ozone---------------------- -->
+                    <div class="form-group">
+                        {{ form.ozone.label }}
+                        {{ form.ozone(class="input-box", placeholder="Enter Ozone value") }}
+                        {% for error in form.ozone.errors %}
+                            <span class="error-message">{{ error }}</span>
+                        {% endfor %}
+                    </div>
+            
+                    <!-- ----------------For NO2---------------------- -->
+                    <div class="form-group">
+                        {{ form.no2.label }}
+                        {{ form.no2(class="input-box", placeholder="Enter NO2 value") }}
+                        {% for error in form.no2.errors %}
+                            <span class="error-message">{{ error }}</span>
+                        {% endfor %}
+                    </div>
+            
+                    <!-- ----------------For PM25---------------------- -->
+                    <div class="form-group">
+                        {{ form.pm25.label }}
+                        {{ form.pm25(class="input-box", placeholder="Enter PM2.5 value") }}
+                        {% for error in form.pm25.errors %}
+                            <span class="error-message">{{ error }}</span>
+                        {% endfor %}
+                    </div>
+            
+                    <!-- ----------------For Submit Button---------------------- -->
+                    {{ form.submit(class="btn-submit") }}
+                </form>
+    
+    
+            </div>
+    
+            
+            {% if latest_prediction %}
+            <div class="aqi_result">
+                <h2>Predicted AQI value</h2>
+                <h1>{{ latest_prediction.predicted_aqi | round(2) }}</h1>
+            
+                <p>
+                    Category: <span class="{{ latest_prediction.aqi_category|lower|replace(' ', '_') }}">{{ latest_prediction.aqi_category }}</span>
+                </p>
+            
+                <p>
+                    Predicted on: {{ latest_prediction.predicted_at.strftime('%d %b %Y %I:%M %p') }}
+                </p>
+            </div>
+            {% endif %}
+
+        </div>
+
+
+    </div>
+
+{% endblock %}

@@ -1,0 +1,143 @@
+{% set body_class = 'static-page' %}
+{% extends 'base.html' %}
+
+{% block title %} Air Pollution{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/pages.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<div class="container2">
+
+ 
+    
+    <!-- AIR POLLNBCK IMAGE  -->
+    
+    <div class="air-content">
+        <div class="air-pollution">
+            
+            <div class="air-header">
+                <h2>Air Pollution</h2>
+            </div>
+            
+
+                
+            <h3>
+                What is Air Pollution
+                <a href="https://www.who.int/health-topics/air-pollution#tab=tab_1" 
+                class="external-link" target="_blank">
+                </a>
+            </h3>
+            <p>
+                Air pollution occurs when physical, chemical, or biological agents alter 
+                the natural composition of the atmosphere. 
+                These pollutants may be present in the form of gases, particulate matter, 
+                or aerosols and can remain suspended in the air for extended periods.
+            </p>
+            <p>Pollutants are broadly classified into:</p>
+            <ul>
+                <li>Primary pollutants – directly emitted into the atmosphere</li>
+                <li>Secondary pollutants – formed through chemical reactions in the atmosphere</li>
+            </ul>
+            <br>
+            <h3>Major Air Pollutants</h3>
+            <h4>1. Particulate Matter (PM)
+                <a href="https://www.epa.gov/pm-pollution/particulate-matter-pm-basics" 
+                class="external-link" target="_blank">
+                </a>
+            </h4>
+            <p>Particulate Matter consists of microscopic solid or liquid particles suspended in the air.</p>
+            <ul>
+                <li>PM10: Particles with a diameter ≤ 10 micrometers</li>
+                <li>PM2.5: Fine particles ≤ 2.5 micrometers</li>
+            </ul>
+            <p>
+                PM2.5 is considered particularly dangerous because it can penetrate deep into the lungs 
+                and enter the bloodstream, causing systemic health effects.
+            </p>
+            <br>
+            <h4>2. Carbon Monoxide (CO)
+                <a href="https://science.nasa.gov/earth/earth-observatory/global-maps/carbon-monoxide/" 
+                class="external-link" target="_blank">
+                </a>
+            </h4>
+            <p>
+                Carbon Monoxide is a colorless, odorless gas produced by incomplete combustion of carbon-based fuels. 
+                High concentrations reduce the oxygen-carrying capacity of blood, 
+                leading to serious cardiovascular and neurological risks.
+            </p>
+            <br>
+            <h4>3. Nitrogen Dioxide (NO₂)
+                <a href="https://www.epa.gov/no2-pollution" 
+                class="external-link" target="_blank">
+                </a>
+            </h4>
+            <p>Nitrogen Dioxide is mainly generated from vehicle engines and power plants. 
+                It plays a major role in the formation of 
+                secondary pollutants such as ozone and particulate matter.
+            </p>
+            <br>
+            <h4>4. Ozone (O₃)
+                <a href="https://www.gov.uk/government/statistics/air-quality-statistics/concentrations-of-ozone" 
+                class="external-link" target="_blank">
+                </a>
+            </h4>
+            <p>
+                Ground-level ozone is not emitted directly. It forms when nitrogen oxides 
+                react with volatile organic compounds in the presence of sunlight. 
+                While ozone in the upper atmosphere protects life, 
+                ground-level ozone is harmful to respiratory health.
+            </p><br>
+            <h4>5. Sulfur Dioxide (SO₂)
+                <a href="https://www.epa.gov/so2-pollution" 
+                class="external-link" target="_blank">
+                </a>
+            </h4>
+            <p>
+                Sulfur Dioxide is released primarily from burning coal and oil at power plants and refineries. 
+                It contributes to acid rain and fine particulate formation.
+            </p><br>
+            <h3>Sources of Air Pollution</h3>
+            <h4>1. Anthropogenic (Human-Caused) Sources
+                <a href="https://www.ebsco.com/research-starters/earth-and-atmospheric-sciences/anthropogenic-air-pollution-and-pollutants" 
+                class="external-link" target="_blank">
+                </a>
+            </h4>
+            <ul>
+                <li>Road transportation</li>
+                <li>Industrial manufacturing</li>
+                <li>Thermal power generation</li>
+                <li>Construction and demolition activities</li>
+                <li>Waste burning and landfill emissions</li>
+            </ul>
+            <p>These sources account for the majority of urban air pollution globally.</p>
+            <br>
+            <h4>2. Natural Sources
+                <a href="https://www.clarity.io/blog/natural-sources-of-air-pollution" 
+                class="external-link" target="_blank">
+                </a>
+            </h4>
+            <ul>
+                <li>Wildfires</li>
+                <li>Dust storms</li>
+                <li>Volcanic eruptions</li>
+                <li>Sea salt aerosols</li>
+            </ul>
+            <p>Although natural sources contribute to air pollution, 
+                their impact is often episodic and region-specific 
+                compared to continuous anthropogenic emissions.
+            </p>
+
+
+        </div>
+    
+    </div>
+
+
+</div>
+
+
+
+{% endblock %}

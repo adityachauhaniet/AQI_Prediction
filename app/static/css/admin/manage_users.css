@@ -1,0 +1,136 @@
+
+.page-header {
+    position: sticky;
+}
+/* ----------------------TABLE--------------------------------- */
+
+.table-conariner {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+}
+
+.admin-table {
+    width: 100%;
+    border-color: collapse;
+}
+
+/* Ab header ko */
+.admin-table th {
+    background: #1e293b;
+    color: white;
+    padding: 14px;
+    text-align: left;
+}
+
+/* Ab data rows ko */
+.admin-table td {
+    padding: 14px;
+    border-bottom: 1px solid #eee;
+}
+
+/* row pe hover karne per */
+.admin-table tr:hover {
+    background: hsla(210, 40%, 98%, 0.325);
+    color: #e4e7ec;
+}
+
+/*----------------------- ROLE BADGE -----------------------*/
+
+.role-badge {
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+/* Admin badge */
+.role-badge.admin {
+    background: #fee2e2;
+    color: #b91c1c;
+}
+
+/* User badge */
+.role-badge.user {
+    background: #d1fae5;
+    color: #065f46;
+}
+
+/* Action button */
+.actions {
+    display: flex;
+}
+
+.btn-delete {
+    background: #ef4444;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    color: white;
+    cursor: pointer;
+}
+
+.btn-delete:hover {
+    background: #dc2626;
+}
+
+/* ----------------------------------- DARK MODE ---------------------------- */
+
+.admin-body.dark-mode .table-container {
+    background: #1e293b43;
+}
+
+.admin-body.dark-mode .admin-table {
+    color: #e2e8f0;
+}
+
+.admin-body.dark.mode .admin-table th {
+    background: #020305;
+}
+
+.admin-body.dark-mode .admin-table tr:hover {
+    background: #243247;
+}
+
+
+/* ------------------------------------- RESPONSIVE ------------------------------- */
+
+/* -----------------MOBILE-------------- */
+
+@media(max-width: 767px) {
+
+    .admin-table thead {
+        display: none;
+        /* background: #020305; */
+    }
+
+    .admin-table,
+    .admin-table tbody,
+    .admin-tablle tr,
+    .admin-table td {
+        display: block;
+        width: 100%;
+    }
+
+    .admin-table tr {
+        background: rgba(255, 255, 255, 0.106);
+        margin-bottom: 15px;
+        padding: 15px;
+        border-radius: 10px;
+    }
+
+    .admin-table td::before {
+        font-weight: 600px;
+        display: block;
+        margin-bottom: 5px;
+        color: #050607;
+    }
+
+    .admin-table td:nth-child(1)::before{ content: "ID"; }
+    .admin-table td:nth-child(2)::before{ content: "Username"; }
+    .admin-table td:nth-child(3)::before{ content: "Email"; }
+    .admin-table td:nth-child(4)::before{ content: "Role"; }
+    .admin-table td:nth-child(5)::before{ content: "Actions"; }
+
+
+}

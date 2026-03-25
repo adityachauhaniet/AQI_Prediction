@@ -1,0 +1,102 @@
+{% extends 'admin/admin_base.html'  %}
+{% block title %}Upload Report{% endblock %}
+
+{% block extra_css %}
+
+<link rel="stylesheet"
+      href="{{ url_for('static', filename='css/admin/upload_report.css') }}">
+
+{% endblock %}
+
+ 
+
+{% block content %}
+
+<div class="upload-wrapper">
+
+    <div class="upload-card">
+
+        <div class="upload-header">
+            <h2>Upload New Report</h2>
+            <p>Add mannual air quality reports for users</p>
+        </div>
+
+        <form method="POST" enctype="multipart/form-data" class="upload-form">
+
+            <!-- Title -->
+             <div class="form-group">
+                <label>Report Title</label>
+                <input type="text" name="title" required>
+             </div>
+
+            <!-- Description -->
+            <div class="form-group">
+                <label>Description</label>
+                <textarea name="description" rows="4"></textarea>
+            </div>
+
+            <!-- Year -->
+             <div class="form-group">
+                <label>Year</label>
+                <input type="number" name="year" min="2000" max="2100" placeholder="e.g. 2024" required>
+             </div>
+
+             <!-- File upload -->
+              <div class="form-group">
+                <label>Upload PDF</label>
+
+                <div class="file-upload">
+                    <input type="file" name="pdf" id="fileInput"
+                           accept=".pdf" required>
+
+                    <div class="file-box" id="fileBox">
+                        Drag & Drop PDF here
+                        <br>
+                        <span>or click to brows</span>
+                    </div>
+                </div>
+
+                <div id="filename" class="file-name"></div>
+              </div>
+
+              <!-- Submit -->
+              <button type="submit" class="upload-btn">
+                    Upload Report
+              </button>
+
+        </form>
+
+    </div>
+ 
+</div>
+
+
+
+
+<!-- Show selected file  -->
+<script>
+const fileInput = document.getElementById("fileInput");
+const fileName = document.getElementById("filename");
+const fileBox = document.getElementById("fileBox");
+
+/* Show file name */
+fileInput.addEventListener("change", function () {
+    if (fileInput.files.length > 0) {
+        fileName.innerText = "Selected: " + fileInput.files[0].name;
+        fileBox.style.borderColor = "#28a745";
+        fileBox.style.background = "#e8f8ef";
+    }
+});
+
+/* Drag effect */
+fileBox.addEventListener("dragover", function (e) {
+    e.preventDefault();
+    fileBox.style.background = "#e9efff";
+});
+
+fileBox.addEventListener("dragleave", function () {
+    fileBox.style.background = "#f4f7ff";
+});
+</script>
+
+{% endblock %}

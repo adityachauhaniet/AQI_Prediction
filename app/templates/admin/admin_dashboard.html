@@ -1,0 +1,92 @@
+{% extends 'admin/admin_base.html'  %}
+
+{% block title %}Admin Dashboard{% endblock %}
+
+{% block page_title %}Dashboard Overview{% endblock %} <!-- topbar ka title change karta ahi -->
+
+ 
+{% block extra_css %}
+<!-- Admin dashboard specific CSS -->
+<link rel="stylesheet"
+      href="{{ url_for('static', filename='css/admin/admin_dashboard.css') }}">
+{% endblock %}
+
+
+{% block content %}
+
+
+ 
+<!-- ------------------------------------DASHBOARD STATS SECTION---------------------------- -->
+
+<div class="stats-grid"> <!-- Cards ko grid layout me arrange karenge-->
+
+    <!-- Total Reports Card -->
+     <div class="stat-card"> <!-- her metric ka container-->
+      <h4>Total Reports</h4>
+      <p class="stat-number"> {{ total_reports }}</p> <!-- ye backend se ayega-->
+      <span class="stat-label">All uploaded reports</span>
+    </div>
+
+     <!-- Total Contact Messages Card -->
+      <div class="stat-card">
+        <h4>Contact Messages</h4>
+        <p class="stat-number"> {{ total_messages }}</p>
+        <span class="stat-label">User inquiries</span>
+      </div>
+      
+      <!-- Total Users Card -->
+       <div class="stat-card">
+        <h4>Total Users</h4>
+        <p class="stat-number"> {{ total_users }}</p>
+        <span class="stat-label">Registered users</span>
+      </div>
+
+      <!-- Total Predictions Card -->
+       <div class="stat-card">
+        <h4>Total Predictions</h4>
+        <p class="stat-number">{{ total_predictions }}</p>
+        <span class="stat-label">AQI predictions made</span>
+       </div>
+
+        
+</div>
+ 
+<!-- -------------------------RECENT ACTIVITY------------------ -->
+
+<div class="dashboard-section">
+
+  <h3>Recent Activity</h3>
+  <div class="activity-box">
+    <p>No recent activity yet.</p>
+  </div>
+
+</div>
+
+ 
+<!-- ----------------------Quick Action------------------ -->
+
+<div class="dashboard-section">
+
+    <h3>Quick actions</h3>
+
+    <div class="quick-actions">
+      <a href="{{ url_for('pages.upload_report') }}" class="action-btn">
+        + Upload Report
+      </a>
+      
+      <a href="{{ url_for('pages.admin_reports') }}" class="action-btn secondary">
+        Manage Report
+      </a>
+
+      <a href="{{ url_for('pages.contact_messages') }}" class="action-btn outline">
+        View Messages
+      </a>
+
+    </div>
+
+</div>
+
+
+
+
+{% endblock %}
