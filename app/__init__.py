@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, app
 from flask_sqlalchemy import SQLAlchemy
 import os
 
@@ -10,9 +10,16 @@ def create_app():
     
     BASE_DIR = os.path.abspath(os.path.dirname(__file__))
     app.config['SECRET_KEY'] = 'your-secret-key'
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(app.instance_path, 'aqi.db')
-    
+
+    database_url = os.environ.get("DATABASE_URL")
+
+    if database_url:
+        app.config['SQLALCHEMY_DATABASE_URI'] = database_url.replace("postgres://", "postgresql://")
+    else:
+        app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(app.instance_path, 'aqi.db')
+
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+        
     os.makedirs(app.instance_path, exist_ok=True)
     app.config['AQI_API_KEY'] = 'your-aqi-api-key'  # Configuration for AQI API Key 
 
