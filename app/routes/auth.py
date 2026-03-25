@@ -98,32 +98,6 @@ def login():
 
 
 
-# ---------------------- CREATE ADMIN (TEMP) -----------------------------
-@auth_bp.route('/create-admin')
-def create_admin_temp():
-    from werkzeug.security import generate_password_hash
-    from app.models import User
-    from app import db
-
-    # check agar already exist ho
-    existing = User.query.filter_by(username="admin").first()
-
-    if existing:
-        return "Admin already exists!"
-
-    admin = User(
-        username="admin",
-        email="admin@gmail.com",
-        password=generate_password_hash("Admin123@"),
-        role="admin"
-    )
-
-    db.session.add(admin)
-    db.session.commit()
-
-    return "Admin created successfully!"
-
-
 #-----------------------------------------------LOGOUT ROUTE--------------------------
 @auth_bp.route('/logout')
 def logout():
