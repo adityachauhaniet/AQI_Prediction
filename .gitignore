@@ -9,8 +9,13 @@ myenv/
 
 instance/
 *.db
+*.sqlite3
 
 .vscode/
 .DS_Store
 
 *.log
+
+.env
+
+create_admin.py
