@@ -98,6 +98,29 @@ def login():
 
 
 
+@auth_bp.route('/create-admin')
+def create_admin():
+    from app import db
+    from app.models import User
+    from werkzeug.security import generate_password_hash
+
+    existing = User.query.filter_by(username='admin').first()
+    if existing:
+        return "Admin already exists!"
+
+    admin = User(
+        username='admin',
+        password=generate_password_hash('admin123'),
+        is_admin=True
+    )
+
+    db.session.add(admin)
+    db.session.commit()
+
+    return "Admin created successfully!"
+
+
+
 #-----------------------------------------------LOGOUT ROUTE--------------------------
 @auth_bp.route('/logout')
 def logout():
