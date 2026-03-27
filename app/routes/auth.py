@@ -104,24 +104,27 @@ def create_admin():
     from app.models import User
     from werkzeug.security import generate_password_hash
 
-    # 🔥 Step 1: tables create
-    db.create_all()
+    try:
+        db.create_all()
 
-    # 🔥 Step 2: check admin
-    user = User.query.filter_by(username="admin").first()
+        admin = User.query.filter_by(username="admin").first()
 
-    if not user:
-        admin = User(
-            username="admin",
-            email="admin@gmail.com",
-            password=generate_password_hash("Admin123@"),
-            role="admin"
-        )
-        db.session.add(admin)
-        db.session.commit()
-        return "Admin created!"
+        if not admin:
+            admin = User(
+                username="admin",
+                email="admin@gmail.com",
+                password=generate_password_hash("Admin123@"),
+                role="admin"
+            )
+            db.session.add(admin)
+            db.session.commit()
+            return "Admin created successfully!"
 
-    return "Admin already exists"
+        return "Admin already exists"
+
+    except Exception as e:
+        return str(e)
+
 
 #-----------------------------------------------LOGOUT ROUTE--------------------------
 @auth_bp.route('/logout')
