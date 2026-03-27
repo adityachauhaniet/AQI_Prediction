@@ -98,32 +98,38 @@ def login():
 
 
 
+
+
 @auth_bp.route('/create-admin')
 def create_admin():
     from app import db
     from app.models import User
     from werkzeug.security import generate_password_hash
 
-    try:
-        db.create_all()
+    username = os.environ.get("ADMIN_USERNAME")
+    email = os.environ.get("ADMIN_EMAIL")
+    password = os.environ.get("ADMIN_PASSWORD")
 
-        admin = User.query.filter_by(username="admin").first()
+    try:
+        admin = User.query.filter_by(username=username).first()
 
         if not admin:
             admin = User(
-                username="admin",
-                email="admin@gmail.com",
-                password=generate_password_hash("Admin123@"),
+                username=username,
+                email=email,
+                password=generate_password_hash(password),
                 role="admin"
             )
             db.session.add(admin)
             db.session.commit()
-            return "Admin created successfully!"
+            return "Admin created!"
 
         return "Admin already exists"
 
     except Exception as e:
         return str(e)
+    
+
 
 
 #-----------------------------------------------LOGOUT ROUTE--------------------------
@@ -151,3 +157,10 @@ def check_users():
     from app.models import User
     users = User.query.all()
     return str(users)
+
+
+@auth_bp.route('/init-db')
+def init_db():
+    from app import db
+    db.create_all()
+    return "DB Created!"

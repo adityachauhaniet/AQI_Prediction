@@ -11,12 +11,7 @@ def create_app():
     BASE_DIR = os.path.abspath(os.path.dirname(__file__))
     app.config['SECRET_KEY'] = 'your-secret-key'
 
-    database_url = os.environ.get("DATABASE_URL")
-
-    if database_url:
-        app.config['SQLALCHEMY_DATABASE_URI'] = database_url.replace("postgres://", "postgresql://")
-    else:
-        app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(app.instance_path, 'aqi.db')
+    app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DATABASE_URL")
 
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
         
