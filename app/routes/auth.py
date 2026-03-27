@@ -137,3 +137,17 @@ def logout():
     flash("You have been logged out!", 'info')
     #Ab esko phir se login page pe bhej dete hain
     return redirect(url_for('auth.login')) #WHY auth.login--> b/c login route is in auth blueprint
+
+
+
+
+
+
+
+
+# Check users
+@auth_bp.route('/check-users')
+def check_users():
+    from app.models import User
+    users = User.query.all()
+    return str(users)
