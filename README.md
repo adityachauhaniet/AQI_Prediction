@@ -183,7 +183,7 @@ Steps:
 
 * GitHub: https://github.com/adityachauhaniet
 * Email: [adityachauhanietlko22@gmail.com](mailto:adityachauhanietlko22@gmail.com)
-* ==> Available at your primary URL https://aqi-prediction-wkbe.onrender.com
+* Available at your primary URL https://aqi-prediction-wkbe.onrender.com
 
 ---
 
