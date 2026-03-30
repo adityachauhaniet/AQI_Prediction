@@ -1,3 +1,5 @@
+import os
+
 from flask import Blueprint, render_template, request, redirect, url_for, flash, session
 from werkzeug.security import generate_password_hash, check_password_hash #importing password hashing function
 from app import db
@@ -10,46 +12,33 @@ from app.forms import RegistrationForm, LoginForm
 #Ek blueprint object create ker lete hain
 auth_bp = Blueprint('auth', __name__)
 
-
 #-------------------------------------------REGISTER ROUTE----------------------------
 @auth_bp.route('/register', methods=["POST", "GET"])
 def register():
-    #ager user already login h to usko direct prediction page pe bhej denge
     if 'user_id' in session:
-        return redirect(url_for('prediction.view_prediction'))
+        return redirect(url_for('dashboard.dashboard'))
     
     form = RegistrationForm()
-
     if form.validate_on_submit(): #Esme method==POST + validation okk both are include
-        username = form.username.data
-        email = form.email.data
-        password = form.password.data
-
-        #Check kar lete hain if username ya email already exist
-        existing_user_by_username = User.query.filter_by(username=username).first()
-        existing_user_by_email = User.query.filter_by(email=email).first()
-
-        
-        if existing_user_by_username:
-            flash("Username already taken, choose another one!", 'danger')
+        # Check if user/email exists
+        if User.query.filter_by(username=form.username.data).first():
+            flash("Username already taken!", 'danger')
             return render_template('register.html', form=form)
         
-        if existing_user_by_email:
-            flash("Email alredy registered, Please login!", "danger")
+        if User.query.filter_by(email=form.email.data).first():
+            flash("Email already registered!", "danger")
             return render_template('register.html', form=form)
         
-        #Ab Password Hash kar lete hain, jisase duplicate password creation avoid kr sken
-        hashed_password = generate_password_hash(password) #ye unique pass dega
-
+        # Password Hash kar lete hain, jisase duplicate password creation avoid kr sken
+        hashed_pw = generate_password_hash(form.password.data)
         #naya User Object create karte hain
-        new_user = User(username=username, email=email, password=hashed_password)
+        new_user = User(username=form.username.data, email=form.email.data, password=hashed_pw)
+        
         db.session.add(new_user)
-        db.session.commit()
+        db.session.commit() # PostgreSQL mein commit karna zaroori hai table save karne ke liye
 
-        flash("Registeration successful 🎉, Please login now!", 'success')
+        flash("Registration successful 🎉, Please login!", 'success')
         return redirect(url_for('auth.login'))
-    
-
     #GET Request ya validation error ker liye
     return render_template('register.html', form=form)
 
@@ -58,90 +47,34 @@ def register():
 #----------------------LOGIN ROUTE-----------------------------
 @auth_bp.route('/login', methods=["POST", "GET"])
 def login():
-    #ager user already logged ihn h tb
     if 'user_id' in session:
-        return redirect(url_for('prediction.view_prediction'))
+        return redirect(url_for('dashboard.dashboard'))
     
     form = LoginForm() #login form ko inherate kr lete hain
-    
-    if form.validate_on_submit(): #method==POST + validation ook then
+    if form.validate_on_submit():
         identifier = form.email_or_username.data #username or email dono se login ho jayega
-        password = form.password.data #form me se data read kr rhe hain
+        
+        user = User.query.filter((User.email == identifier) | (User.username == identifier)).first() #email ya username dono se login ho jayega
 
-        print("Identifier:", identifier)
-
-        #pahle email se search kr lete hain 
-        user = User.query.filter_by(email=identifier).first()
-        #Ager email se nhi mila to username se search kro
-        if not user:
-            user = User.query.filter_by(username=identifier).first()
-        print("User found:", user)
-
-        if user:
-            print("Stored hash:", user.password)
-            print("Entered password:", password)
-            print("Match:", check_password_hash(user.password, password))
-            
-
-        if user and check_password_hash(user.password, password): #Uaser ka password aur hashed password match hone chahiye
-            #yahan DB user ka (id+username) session me daal dete hain
+        if user and check_password_hash(user.password, form.password.data): #Uaser ka password aur hashed password match hone chahiye
             session['user_id'] = user.id
-            session['username'] = user.username #optionl bus display ke liye
+            session['username'] = user.username
             session['role'] = user.role
-            flash("Login successfull 🎉", "success")
+            flash("Login successful 🎉", "success")
             return redirect(url_for('dashboard.dashboard'))
-            
         else:
-            flash("Invalid email/username or password", "danger")
+            flash("Invalid credentials", "danger")
 
     return render_template('login.html', form=form) #ager, match nhi hua to phir se login page pe bhej do
-
-
-
-
-
-@auth_bp.route('/create-admin')
-def create_admin():
-    from app import db
-    from app.models import User
-    from werkzeug.security import generate_password_hash
-
-    username = os.environ.get("ADMIN_USERNAME")
-    email = os.environ.get("ADMIN_EMAIL")
-    password = os.environ.get("ADMIN_PASSWORD")
-
-    try:
-        admin = User.query.filter_by(username=username).first()
-
-        if not admin:
-            admin = User(
-                username=username,
-                email=email,
-                password=generate_password_hash(password),
-                role="admin"
-            )
-            db.session.add(admin)
-            db.session.commit()
-            return "Admin created!"
-
-        return "Admin already exists"
-
-    except Exception as e:
-        return str(e)
-    
-
+ 
 
 
 #-----------------------------------------------LOGOUT ROUTE--------------------------
 @auth_bp.route('/logout')
 def logout():
-    #remove the user form the session for log them out
-    session.pop('user_id', None)
-    session.pop('username', None)
-    session.pop('user', None)
-    
+    session.clear() # Poora session clear karna zyada safe hai
     flash("You have been logged out!", 'info')
-    #Ab esko phir se login page pe bhej dete hain
+     #Ab esko phir se login page pe bhej dete hain
     return redirect(url_for('auth.login')) #WHY auth.login--> b/c login route is in auth blueprint
 
 
@@ -149,18 +82,16 @@ def logout():
 
 
 
-
-
 # Check users
-@auth_bp.route('/check-users')
-def check_users():
-    from app.models import User
-    users = User.query.all()
-    return str(users)
+# @auth_bp.route('/check-users')
+# def check_users():
+#     from app.models import User
+#     users = User.query.all()
+#     return str(users)
 
 
-@auth_bp.route('/init-db')
-def init_db():
-    from app import db
-    db.create_all()
-    return "DB Created!"
+# @auth_bp.route('/init-db')
+# def init_db():
+#     from app import db
+#     db.create_all()
+#     return "DB Created!"
