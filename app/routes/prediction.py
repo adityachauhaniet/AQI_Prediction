@@ -98,8 +98,10 @@ def new_prediction():
         input_data = np.array([[co, ozone, no2, pm25]])
 
         #------------------------------------------------------Prediction-------------------------------------------------------------------
-        #[0] esiliye b/c output array hota h
-        predicted_aqi = model.predict(input_data)[0]
+        # model.predict(input_data)[0] ek numpy.float64 return karta hai
+        # Ise normal Python float mein badalna zaroori hai PostgreSQL ke liye
+        raw_prediction = model.predict(input_data)[0]
+        predicted_aqi = float(raw_prediction) # Numpy float ko normal float mein convert karna zaroori hai, warna PostgreSQL me error aayega jab hum ise save karenge.
 
     #-----------------------------------------------------Ab prediction ko DB me save kr lete hain---------------------------------------
         new_prediction = Prediction(
