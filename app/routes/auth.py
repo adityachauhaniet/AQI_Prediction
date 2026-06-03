@@ -67,7 +67,7 @@ def login():
 
     return render_template('login.html', form=form) #ager, match nhi hua to phir se login page pe bhej do
  
-
+  
 
 #-----------------------------------------------LOGOUT ROUTE--------------------------
 @auth_bp.route('/logout')
